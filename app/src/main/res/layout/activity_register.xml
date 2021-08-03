@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".ui.register.RegisterActivity"
+    android:orientation="vertical">
+
+    <com.janedales.giftmywishclone.ui.views.CollapsedHintTextInputLayout
+        android:id="@+id/tilFirstName"
+        android:visibility="visible"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+        android:layout_marginHorizontal="16dp"
+        android:hint="First Name"
+        android:layout_marginTop="16dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etFirstName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:imeOptions="actionGo"
+            android:inputType="text|textCapWords"
+            android:singleLine="true"/>
+    </com.janedales.giftmywishclone.ui.views.CollapsedHintTextInputLayout>
+
+    <com.janedales.giftmywishclone.ui.views.CollapsedHintTextInputLayout
+        android:id="@+id/tilLastName"
+        android:visibility="visible"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+        android:layout_marginHorizontal="16dp"
+        android:hint="Last Name"
+        android:layout_marginTop="8dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etLastName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:imeOptions="actionGo"
+            android:inputType="text|textCapWords"
+            android:singleLine="true" />
+    </com.janedales.giftmywishclone.ui.views.CollapsedHintTextInputLayout>
+
+    <com.janedales.giftmywishclone.ui.views.CollapsedHintTextInputLayout
+        android:id="@+id/tilDateOfBirth"
+        android:visibility="visible"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+        android:layout_marginHorizontal="16dp"
+        android:hint="Date of birth"
+        android:layout_marginTop="8dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etDateOfBirth"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="DD/MM/YEAR"
+            android:imeOptions="actionGo"
+            android:inputType="text"
+            android:singleLine="true"/>
+    </com.janedales.giftmywishclone.ui.views.CollapsedHintTextInputLayout>
+
+    <com.janedales.giftmywishclone.ui.views.CollapsedHintTextInputLayout
+        android:id="@+id/tilEmail"
+        android:visibility="visible"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+        android:layout_marginHorizontal="16dp"
+        android:hint="Email"
+        android:layout_marginTop="8dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:imeOptions="actionGo"
+            android:inputType="text"
+            android:singleLine="true" />
+    </com.janedales.giftmywishclone.ui.views.CollapsedHintTextInputLayout>
+
+    <com.janedales.giftmywishclone.ui.views.CollapsedHintTextInputLayout
+        android:id="@+id/tilUserName"
+        android:visibility="visible"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+        android:layout_marginHorizontal="16dp"
+        android:hint="Username"
+        android:layout_marginTop="8dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etUserName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:imeOptions="actionGo"
+            android:inputType="text"
+            android:singleLine="true" />
+    </com.janedales.giftmywishclone.ui.views.CollapsedHintTextInputLayout>
+
+    <com.janedales.giftmywishclone.ui.views.CollapsedHintTextInputLayout
+        android:id="@+id/tilPassword"
+        android:visibility="visible"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+        android:layout_marginHorizontal="16dp"
+        android:hint="Password"
+        app:passwordToggleEnabled="true"
+        android:layout_marginTop="8dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPassword"
+            android:imeOptions="actionGo"
+            android:singleLine="true" />
+    </com.janedales.giftmywishclone.ui.views.CollapsedHintTextInputLayout>
+
+    <Space
+        android:layout_weight="1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+    <Button
+        android:id="@+id/btnRegister"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/purple_dark"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="16dp"
+        android:text="Register"
+        android:textAllCaps="false"
+        android:textStyle="italic"
+        android:textSize="24sp"
+        />
+    <TextView
+        android:id="@+id/tvTerms"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="By tapping Sing In, you agree with\nour Terms of Service and Privacy Policy"
+        android:gravity="center"
+        android:textStyle="italic"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        android:layout_gravity="center"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="32dp"
+        />
+</LinearLayout>
