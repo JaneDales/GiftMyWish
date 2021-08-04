@@ -22,7 +22,7 @@
             android:layout_height="wrap_content"
             android:imeOptions="actionGo"
             android:inputType="text"
-            android:singleLine="true"/>
+            android:singleLine="true" />
     </com.janedales.giftmywishclone.ui.views.CollapsedHintTextInputLayout>
 
     <com.janedales.giftmywishclone.ui.views.CollapsedHintTextInputLayout
