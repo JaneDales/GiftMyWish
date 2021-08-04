@@ -13,21 +13,25 @@ public class LoginPresenter implements LoginModelCallback {
     }
 
     public void login (String userName, String password){
+        contract.showProgress();
         model.login(new LoginUserRequest(userName, password));
     }
 
     @Override
     public void onSuccess(User user) {
+        contract.hideProgress();
         contract.onLoginSuccess();
     }
 
     @Override
     public void onFail(Throwable t) {
+        contract.hideProgress();
         contract.onFail(t);
     }
 
     @Override
     public void onFail(String s) {
+        contract.hideProgress();
         contract.onFail(s);
     }
 }

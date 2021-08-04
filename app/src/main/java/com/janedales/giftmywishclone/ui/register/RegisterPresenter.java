@@ -1,6 +1,7 @@
 package com.janedales.giftmywishclone.ui.register;
 
 import com.janedales.giftmywishclone.data.entity.User;
+import com.janedales.giftmywishclone.data.network.request.ConfirmCodeRequest;
 import com.janedales.giftmywishclone.data.network.request.RegisterUser;
 import com.janedales.giftmywishclone.data.network.request.RegisterUserRequest;
 
@@ -29,13 +30,22 @@ public class RegisterPresenter implements RegisterModelCallback {
         model.register(registerUserRequest);
     }
 
+    public void confirmCode(String username, String code) {
+        model.confirmCode(new ConfirmCodeRequest(username, code));
+    }
+
     @Override
     public void onFail(Throwable t) {
         contract.onFail(t);
     }
 
     @Override
-    public void onSuccess(User user) {
+    public void onSuccessRegister(User user) {
         contract.onUserRegistered(user);
+    }
+
+    @Override
+    public void onSuccessCode(User user) {
+        contract.onSuccessCode(user);
     }
 }

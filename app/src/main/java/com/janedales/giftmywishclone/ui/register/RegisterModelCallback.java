@@ -6,5 +6,6 @@ public interface RegisterModelCallback {
 
     void onFail(Throwable t);
 
-    void onSuccess(User user);
+    void onSuccessRegister(User user);
+    void onSuccessCode(User user);
 }

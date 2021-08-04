@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -19,6 +20,8 @@ public class LoginActivity extends AppCompatActivity implements LoginContract {
     private LoginPresenter presenter = new LoginPresenter(this);
     private TextView tvRegister;
     private Button btnLogin;
+    private ProgressBar progressBar;
+    private EditText etUserName, etPassword;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +30,9 @@ public class LoginActivity extends AppCompatActivity implements LoginContract {
 
         tvRegister = findViewById(R.id.tvRegister);
         btnLogin = findViewById(R.id.btnLogin);
+        progressBar = findViewById(R.id.progressBar);
+        etUserName = findViewById(R.id.etUserName);
+        etPassword = findViewById(R.id.etPassword);
 
         tvRegister.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -38,8 +44,6 @@ public class LoginActivity extends AppCompatActivity implements LoginContract {
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                EditText etUserName = findViewById(R.id.etUserName);
-                EditText etPassword = findViewById(R.id.etPassword);
                 String userName = etUserName.getText().toString().trim();
                 String password = etPassword.getText().toString().trim();
 
@@ -66,5 +70,15 @@ public class LoginActivity extends AppCompatActivity implements LoginContract {
     @Override
     public void onFail(String s) {
         Toast.makeText(this, s, Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void showProgress() {
+        progressBar.setVisibility(View.VISIBLE);
+    }
+
+    @Override
+    public void hideProgress() {
+        progressBar.setVisibility(View.GONE);
     }
 }

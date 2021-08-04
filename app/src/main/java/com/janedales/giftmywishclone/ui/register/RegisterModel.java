@@ -1,8 +1,9 @@
 package com.janedales.giftmywishclone.ui.register;
 
 import com.janedales.giftmywishclone.data.network.RetrofitInstance;
+import com.janedales.giftmywishclone.data.network.request.ConfirmCodeRequest;
 import com.janedales.giftmywishclone.data.network.request.RegisterUserRequest;
-import com.janedales.giftmywishclone.data.network.response.UserRegisterResponse;
+import com.janedales.giftmywishclone.data.network.response.UserResponse;
 import com.janedales.giftmywishclone.data.service.UserService;
 
 import retrofit2.Call;
@@ -23,16 +24,37 @@ public class RegisterModel {
         UserService service = RetrofitInstance.getRetrofitInstance().create(UserService.class);
 
         /** Call the method with parameter in the interface to get the notice data*/
-        Call<UserRegisterResponse> call = service.register(registerUserRequest);
+        Call<UserResponse> call = service.register(registerUserRequest);
 
-        call.enqueue(new Callback<UserRegisterResponse>() {
+        call.enqueue(new Callback<UserResponse>() {
             @Override
-            public void onResponse(Call<UserRegisterResponse> call, Response<UserRegisterResponse> response) {
-                callback.onSuccess(response.body().getUser());
+            public void onResponse(Call<UserResponse> call, Response<UserResponse> response) {
+                callback.onSuccessRegister(response.body().getUser());
             }
 
             @Override
-            public void onFailure(Call<UserRegisterResponse> call, Throwable t) {
+            public void onFailure(Call<UserResponse> call, Throwable t) {
+                callback.onFail(t);
+            }
+        });
+    }
+
+    public void confirmCode(ConfirmCodeRequest confirmCodeRequest) {
+
+        /** Create handle for the RetrofitInstance interface*/
+        UserService service = RetrofitInstance.getRetrofitInstance().create(UserService.class);
+
+        /** Call the method with parameter in the interface to get the notice data*/
+        Call<UserResponse> call = service.confirmCode(confirmCodeRequest);
+
+        call.enqueue(new Callback<UserResponse>() {
+            @Override
+            public void onResponse(Call<UserResponse> call, Response<UserResponse> response) {
+                callback.onSuccessCode(response.body().getUser());
+            }
+
+            @Override
+            public void onFailure(Call<UserResponse> call, Throwable t) {
                 callback.onFail(t);
             }
         });

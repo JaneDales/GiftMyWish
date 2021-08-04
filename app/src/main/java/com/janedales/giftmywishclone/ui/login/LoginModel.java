@@ -2,7 +2,7 @@ package com.janedales.giftmywishclone.ui.login;
 
 import com.janedales.giftmywishclone.data.network.RetrofitInstance;
 import com.janedales.giftmywishclone.data.network.request.LoginUserRequest;
-import com.janedales.giftmywishclone.data.network.response.UserRegisterResponse;
+import com.janedales.giftmywishclone.data.network.response.UserResponse;
 import com.janedales.giftmywishclone.data.service.UserService;
 
 import java.io.IOException;
@@ -24,11 +24,11 @@ public class LoginModel {
         UserService service = RetrofitInstance.getRetrofitInstance().create(UserService.class);
 
         /** Call the method with parameter in the interface to get the notice data*/
-        Call<UserRegisterResponse> call = service.login(loginUserRequest);
+        Call<UserResponse> call = service.login(loginUserRequest);
 
-        call.enqueue(new Callback<UserRegisterResponse>() {
+        call.enqueue(new Callback<UserResponse>() {
             @Override
-            public void onResponse(Call<UserRegisterResponse> call, Response<UserRegisterResponse> response) {
+            public void onResponse(Call<UserResponse> call, Response<UserResponse> response) {
                 if (response.isSuccessful()) {
                     callback.onSuccess(response.body().getUser());
                 }
@@ -42,7 +42,7 @@ public class LoginModel {
             }
 
             @Override
-            public void onFailure(Call<UserRegisterResponse> call, Throwable t) {
+            public void onFailure(Call<UserResponse> call, Throwable t) {
                 callback.onFail(t);
             }
         });

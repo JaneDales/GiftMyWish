@@ -6,4 +6,6 @@ public interface RegisterContract {
     void onUserRegistered(User user);
 
     void onFail(Throwable t);
+
+    void onSuccessCode(User user);
 }

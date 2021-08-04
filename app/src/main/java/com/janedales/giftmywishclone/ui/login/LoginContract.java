@@ -6,4 +6,7 @@ public interface LoginContract {
     void onFail(Throwable t);
 
     void onFail(String s);
+
+    void showProgress();
+    void hideProgress();
 }

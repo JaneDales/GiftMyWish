@@ -9,7 +9,6 @@
 
     <com.janedales.giftmywishclone.ui.views.CollapsedHintTextInputLayout
         android:id="@+id/tilFirstName"
-        android:visibility="visible"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
         android:layout_marginHorizontal="16dp"
         android:hint="First Name"
@@ -28,7 +27,6 @@
 
     <com.janedales.giftmywishclone.ui.views.CollapsedHintTextInputLayout
         android:id="@+id/tilLastName"
-        android:visibility="visible"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
         android:layout_marginHorizontal="16dp"
         android:hint="Last Name"
@@ -47,7 +45,6 @@
 
     <com.janedales.giftmywishclone.ui.views.CollapsedHintTextInputLayout
         android:id="@+id/tilDateOfBirth"
-        android:visibility="visible"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
         android:layout_marginHorizontal="16dp"
         android:hint="Date of birth"
@@ -67,7 +64,6 @@
 
     <com.janedales.giftmywishclone.ui.views.CollapsedHintTextInputLayout
         android:id="@+id/tilEmail"
-        android:visibility="visible"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
         android:layout_marginHorizontal="16dp"
         android:hint="Email"
@@ -86,7 +82,6 @@
 
     <com.janedales.giftmywishclone.ui.views.CollapsedHintTextInputLayout
         android:id="@+id/tilUserName"
-        android:visibility="visible"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
         android:layout_marginHorizontal="16dp"
         android:hint="Username"
@@ -105,7 +100,6 @@
 
     <com.janedales.giftmywishclone.ui.views.CollapsedHintTextInputLayout
         android:id="@+id/tilPassword"
-        android:visibility="visible"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
         android:layout_marginHorizontal="16dp"
         android:hint="Password"
@@ -120,6 +114,39 @@
             android:layout_height="wrap_content"
             android:inputType="textPassword"
             android:imeOptions="actionGo"
+            android:singleLine="true" />
+    </com.janedales.giftmywishclone.ui.views.CollapsedHintTextInputLayout>
+
+    <TextView
+        android:id="@+id/tvEnterCode"
+        android:visibility="gone"
+        tools:visibility="visible"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="A confirmation code was sent to your email %s"
+        android:textStyle="italic"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="16dp"
+        />
+    <com.janedales.giftmywishclone.ui.views.CollapsedHintTextInputLayout
+        android:id="@+id/tilEnterCode"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+        android:visibility="gone"
+        tools:visibility="visible"
+        android:layout_marginHorizontal="16dp"
+        android:hint="Code"
+        android:layout_marginTop="8dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etEnterCode"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:imeOptions="actionGo"
+            android:inputType="text"
             android:singleLine="true" />
     </com.janedales.giftmywishclone.ui.views.CollapsedHintTextInputLayout>
 
