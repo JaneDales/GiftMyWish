@@ -1,6 +1,10 @@
 package com.janedales.giftmywishclone.data.network;
 
+import java.io.IOException;
+import okhttp3.Interceptor;
 import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.Response;
 import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
@@ -17,8 +21,21 @@ public class RetrofitInstance {
 
         HttpLoggingInterceptor interceptor = new HttpLoggingInterceptor();
         interceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
-        OkHttpClient client = new OkHttpClient.Builder().addInterceptor(interceptor).build();
+        OkHttpClient.Builder builder = new OkHttpClient.Builder();
 
+        String token = "_QjYF6TExC-6E8aeBPrG";
+
+        builder.addInterceptor(new Interceptor() {
+            @Override
+            public Response intercept(Chain chain) throws IOException {
+                Request.Builder request = chain.request().newBuilder();
+                request.addHeader("Content-Type", "application/json");
+                request.addHeader("Authorization", token);
+                return chain.proceed(request.build());
+            }
+        });
+
+        OkHttpClient client = builder.addInterceptor(interceptor).build();
 
         if (retrofit == null) {
             retrofit = new Retrofit.Builder()

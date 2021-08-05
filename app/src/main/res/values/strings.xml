@@ -17,5 +17,11 @@
     <string name="a_confirmation_code"> A confirmation code was sent to your email %s</string>
     <string name="code">Code</string>
     <string name="btnRegister">Register</string>
+    <string name="my_friends_events">Friend\'s Events</string>
+    <string name="friends">Friends</string>
+    <string name="settings">Settings</string>
+    <string name="my_events">My Events</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>

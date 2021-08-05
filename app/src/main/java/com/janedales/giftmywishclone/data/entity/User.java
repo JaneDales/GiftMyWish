@@ -31,6 +31,10 @@ public class User {
     private Cover cover;
     @SerializedName("shipping_address")
     private ShippingAddress shippingAddress;
+    @SerializedName("is_friend")
+    private boolean isFriend;
+    @SerializedName("authentication_token")
+    private String authenticationToken;
 
     public int getId() {
         return id;
@@ -86,6 +90,10 @@ public class User {
 
     public ShippingAddress getShippingAddress() {
         return shippingAddress;
+    }
+
+    public String getAuthenticationToken() {
+        return authenticationToken;
     }
 
     public String display() {

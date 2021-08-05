@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navigation_friends_events"
+        android:icon="@drawable/ic_my_friends_events_tab"
+        android:title="@string/my_friends_events" />
+
+    <item
+        android:id="@+id/navigation_my_events"
+        android:icon="@drawable/ic_present"
+        android:title="@string/my_events" />
+    <item
+        android:title=""
+        />
+
+    <item
+        android:id="@+id/navigation_friends"
+        android:icon="@drawable/ic_friends_tab_new"
+        android:title="@string/friends" />
+
+    <item
+        android:id="@+id/navigation_settings"
+        android:icon="@drawable/ic_settings"
+        android:title="@string/settings" />
+
+</menu>

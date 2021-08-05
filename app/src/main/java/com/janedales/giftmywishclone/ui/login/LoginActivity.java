@@ -13,11 +13,12 @@ import android.widget.Toast;
 
 import com.janedales.giftmywishclone.MainActivity;
 import com.janedales.giftmywishclone.R;
+import com.janedales.giftmywishclone.data.helpers.SharedPreferencesHelper;
 import com.janedales.giftmywishclone.ui.register.RegisterActivity;
 
 public class LoginActivity extends AppCompatActivity implements LoginContract {
 
-    private LoginPresenter presenter = new LoginPresenter(this);
+    private LoginPresenter presenter;
     private TextView tvRegister;
     private Button btnLogin;
     private ProgressBar progressBar;
@@ -27,6 +28,8 @@ public class LoginActivity extends AppCompatActivity implements LoginContract {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
+        presenter = new LoginPresenter(this, SharedPreferencesHelper.getInstance(this));
 
         tvRegister = findViewById(R.id.tvRegister);
         btnLogin = findViewById(R.id.btnLogin);
