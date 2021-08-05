@@ -11,7 +11,7 @@
         android:id="@+id/tilFirstName"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
         android:layout_marginHorizontal="16dp"
-        android:hint="First Name"
+        android:hint="@string/first_name"
         android:layout_marginTop="16dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -29,7 +29,7 @@
         android:id="@+id/tilLastName"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
         android:layout_marginHorizontal="16dp"
-        android:hint="Last Name"
+        android:hint="@string/last_name"
         android:layout_marginTop="8dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -47,7 +47,7 @@
         android:id="@+id/tilDateOfBirth"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
         android:layout_marginHorizontal="16dp"
-        android:hint="Date of birth"
+        android:hint="@string/date_of_birth"
         android:layout_marginTop="8dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -59,14 +59,15 @@
             android:hint="DD/MM/YEAR"
             android:imeOptions="actionGo"
             android:inputType="text"
-            android:singleLine="true"/>
+            android:singleLine="true"
+            android:onClick="setDate"/>
     </com.janedales.giftmywishclone.ui.views.CollapsedHintTextInputLayout>
 
     <com.janedales.giftmywishclone.ui.views.CollapsedHintTextInputLayout
         android:id="@+id/tilEmail"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
         android:layout_marginHorizontal="16dp"
-        android:hint="Email"
+        android:hint="@string/gmail"
         android:layout_marginTop="8dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -84,7 +85,7 @@
         android:id="@+id/tilUserName"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
         android:layout_marginHorizontal="16dp"
-        android:hint="Username"
+        android:hint="@string/username"
         android:layout_marginTop="8dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -102,7 +103,7 @@
         android:id="@+id/tilPassword"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
         android:layout_marginHorizontal="16dp"
-        android:hint="Password"
+        android:hint="@string/password"
         app:passwordToggleEnabled="true"
         android:layout_marginTop="8dp"
         android:layout_width="match_parent"
@@ -123,7 +124,7 @@
         tools:visibility="visible"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="A confirmation code was sent to your email %s"
+        android:text="@string/a_confirmation_code"
         android:textStyle="italic"
         android:textColor="@color/black"
         android:textSize="16sp"
@@ -136,7 +137,7 @@
         android:visibility="gone"
         tools:visibility="visible"
         android:layout_marginHorizontal="16dp"
-        android:hint="Code"
+        android:hint="@string/code"
         android:layout_marginTop="8dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -161,7 +162,7 @@
         android:backgroundTint="@color/purple_dark"
         android:layout_marginHorizontal="16dp"
         android:layout_marginTop="16dp"
-        android:text="Register"
+        android:text="@string/btnRegister"
         android:textAllCaps="false"
         android:textStyle="italic"
         android:textSize="24sp"
@@ -170,7 +171,7 @@
         android:id="@+id/tvTerms"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="By tapping Sing In, you agree with\nour Terms of Service and Privacy Policy"
+        android:text="@string/terms"
         android:gravity="center"
         android:textStyle="italic"
         android:textColor="@color/black"

@@ -1,3 +1,21 @@
 <resources>
     <string name="app_name">GiftMyWishClone</string>
+    <string name="sing_up">Sing Up</string>
+    <string name="with_your_social_networks">With your social networks</string>
+    <string name="gmail">Gmail</string>
+    <string name="facebook">Facebook</string>
+    <string name="or_log_in">Or Log in</string>
+    <string name="terms">By tapping Sing In, you agree with \nour Terms of Service and Privacy Policy</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="forgot_password">Forgot password?</string>
+    <string name="login">Login</string>
+    <string name="register">Didn\'t have an account? Register</string>
+    <string name="first_name">First Name</string>
+    <string name="last_name">Last Name</string>
+    <string name="date_of_birth">Date of birth</string>
+    <string name="a_confirmation_code"> A confirmation code was sent to your email %s</string>
+    <string name="code">Code</string>
+    <string name="btnRegister">Register</string>
+
 </resources>
