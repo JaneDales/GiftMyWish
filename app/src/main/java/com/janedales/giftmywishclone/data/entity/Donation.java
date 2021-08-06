@@ -12,9 +12,9 @@ public class Donation {
     @SerializedName("recipient_id")
     private int recipientId;
     @SerializedName("amount")
-    private int amount;
+    private double amount;
     @SerializedName("percentage_of")
-    private int percentageOf;
+    private double percentageOf;
     @SerializedName("message")
     private String message;
     @SerializedName("user")
@@ -38,11 +38,11 @@ public class Donation {
         return recipientId;
     }
 
-    public int getAmount() {
+    public double getAmount() {
         return amount;
     }
 
-    public int getPercentageOf() {
+    public double getPercentageOf() {
         return percentageOf;
     }
 

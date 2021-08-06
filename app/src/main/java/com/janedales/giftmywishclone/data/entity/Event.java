@@ -21,6 +21,7 @@ public class Event {
     @SerializedName("like_status") private boolean likeStatus;
     @SerializedName("photo") private Avatar photo;
     @SerializedName("gifts") private List<Gift> gifts;
+    @SerializedName("hide_ids") private List<HideIds> hideIds;
 
     public int getId() {
         return id;
@@ -80,5 +81,9 @@ public class Event {
 
     public List<Gift> getGifts() {
         return gifts;
+    }
+
+    public List<HideIds> getHideIds() {
+        return hideIds;
     }
 }

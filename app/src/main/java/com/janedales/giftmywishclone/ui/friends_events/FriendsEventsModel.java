@@ -29,6 +29,7 @@ public class FriendsEventsModel {
 
         @Override
         public void onFailure(Call<EventsListResponse> call, Throwable t) {
+          t.printStackTrace();
           callback.onFail(t);
         }
       });

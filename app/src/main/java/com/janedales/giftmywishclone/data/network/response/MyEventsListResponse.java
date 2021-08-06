@@ -5,12 +5,12 @@ import com.janedales.giftmywishclone.data.entity.Event;
 
 import java.util.List;
 
-public class EventsListResponse {
-
+public class MyEventsListResponse {
     @SerializedName("events")
     private List<Event> events;
 
-    public List <Event> getEvent() {
+    public List <Event> getMyEvents() {
         return events;
     }
+
 }

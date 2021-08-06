@@ -49,7 +49,6 @@
                 app:layout_constraintLeft_toLeftOf="@id/ivCover"
                 app:layout_constraintRight_toRightOf="@id/ivCover" />
             <View
-                android:id="@+id/lineVertical"
                 android:layout_width="1dp"
                 android:layout_height="0dp"
                 android:background="@color/gray_light"
@@ -59,26 +58,22 @@
                 app:layout_constraintRight_toRightOf="@id/line" />
             <TextView
                 android:id="@+id/tvUserName"
-                android:layout_width="0dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 tools:text="Karina Shkatula"
                 android:textColor="@color/black"
                 android:layout_margin="16dp"
-                android:gravity="center"
                 app:layout_constraintBottom_toBottomOf="@id/line"
                 app:layout_constraintLeft_toLeftOf="@id/line"
-                app:layout_constraintRight_toLeftOf="@id/lineVertical"
                 app:layout_constraintTop_toTopOf="@id/line" />
             <TextView
                 android:id="@+id/tvTitle"
-                android:layout_width="0dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="16dp"
                 tools:text="My wish"
-                android:gravity="center"
                 android:textColor="@color/black"
                 app:layout_constraintBottom_toBottomOf="@id/line"
-                app:layout_constraintLeft_toRightOf="@id/lineVertical"
                 app:layout_constraintRight_toRightOf="@id/line"
                 app:layout_constraintTop_toTopOf="@+id/line" />
         </androidx.constraintlayout.widget.ConstraintLayout>

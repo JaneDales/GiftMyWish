@@ -4,6 +4,7 @@ import com.janedales.giftmywishclone.data.network.request.ConfirmCodeRequest;
 import com.janedales.giftmywishclone.data.network.request.LoginUserRequest;
 import com.janedales.giftmywishclone.data.network.request.RegisterUserRequest;
 import com.janedales.giftmywishclone.data.network.response.EventsListResponse;
+import com.janedales.giftmywishclone.data.network.response.MyEventsListResponse;
 import com.janedales.giftmywishclone.data.network.response.UserResponse;
 
 import retrofit2.Call;
@@ -25,6 +26,12 @@ public interface UserService {
 
     @GET("api/v1/friend_events")
     Call<EventsListResponse> getFriendsEvents(
+            @Query("page") int page,
+            @Query("per_page") int perPage
+    );
+
+    @GET("api/v1/events")
+    Call<MyEventsListResponse> getMyEvents(
             @Query("page") int page,
             @Query("per_page") int perPage
     );
