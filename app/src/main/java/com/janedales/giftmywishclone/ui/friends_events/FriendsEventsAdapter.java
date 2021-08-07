@@ -12,6 +12,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.janedales.giftmywishclone.R;
 import com.janedales.giftmywishclone.data.entity.Event;
+import com.janedales.giftmywishclone.data.helpers.DateHelper;
+
 
 import java.util.List;
 
@@ -32,21 +34,21 @@ public class FriendsEventsAdapter extends RecyclerView.Adapter<FriendsEventsAdap
     public void onBindViewHolder(ViewHolder holder, int position) {
         final Event event = list.get(position);
 
-        String end = event.getEndDate();
+        long days = DateHelper.getDaysLeft(event.getEndDate());
+        holder.tvDaysLeft.setText(days + " DAYS LEFT");
 
-        holder.tvDaysLeft.setText(event.getEndDate());
         holder.tvUserName.setText(event.getUser().getUserName());
         holder.tvTitle.setText(event.getTitle());
         Glide.with(holder.tvDaysLeft.getContext())
-                .load(event.getPhoto().getThumb().getUrl())
+                .load(event.getPhoto().getUrl())
                 .into(holder.ivCover);
 
-//        if(event.getEndDate() < 10){
-//            holder.tvDaysLeft.setBackgroundTintList(ContextCompat.getColorStateList(holder.tvDaysLeft.getContext(), R.color.red));
-//        }
-//        else {
+        if(days < 10){
+            holder.tvDaysLeft.setBackgroundTintList(ContextCompat.getColorStateList(holder.tvDaysLeft.getContext(), R.color.red));
+        }
+        else {
             holder.tvDaysLeft.setBackgroundTintList(ContextCompat.getColorStateList(holder.tvDaysLeft.getContext(), R.color.gray));
-//        }
+        }
     }
 
     @Override

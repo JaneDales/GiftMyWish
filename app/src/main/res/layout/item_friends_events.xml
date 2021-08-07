@@ -35,7 +35,7 @@
                 tools:text="@string/days_left"
                 android:textColor="@color/black"
                 android:paddingHorizontal="8dp"
-                android:background="@drawable/bg_round"
+                android:background="@drawable/bg_round_left"
                 android:backgroundTint="@color/gray_light"
                 app:layout_constraintTop_toTopOf="@id/ivCover"
                 app:layout_constraintRight_toRightOf="@id/ivCover" />
