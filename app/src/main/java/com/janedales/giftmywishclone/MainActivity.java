@@ -9,6 +9,7 @@ import android.os.Bundle;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.janedales.giftmywishclone.ui.friends_events.FriendsEventsFragment;
 import com.janedales.giftmywishclone.ui.my_events.MyEventsFragment;
+import com.janedales.giftmywishclone.ui.settings.SettingsFragment;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -37,6 +38,7 @@ public class MainActivity extends AppCompatActivity {
                 case R.id.navigation_friends:
                     break;
                 case R.id.navigation_settings:
+                    openFragment(new SettingsFragment());
                     break;
             }
             return true;

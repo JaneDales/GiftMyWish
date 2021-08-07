@@ -7,8 +7,10 @@ import com.janedales.giftmywishclone.data.network.response.EventsListResponse;
 import com.janedales.giftmywishclone.data.network.response.MyEventsListResponse;
 import com.janedales.giftmywishclone.data.network.response.UserResponse;
 
+import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.http.Body;
+import retrofit2.http.DELETE;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
 import retrofit2.http.Query;
@@ -35,4 +37,7 @@ public interface UserService {
             @Query("page") int page,
             @Query("per_page") int perPage
     );
+
+    @DELETE("api/v1/providers/logout")
+    Call<ResponseBody> logOut();
 }

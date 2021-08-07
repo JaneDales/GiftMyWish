@@ -23,7 +23,7 @@ public class RetrofitInstance {
         interceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
         OkHttpClient.Builder builder = new OkHttpClient.Builder();
 
-        String token = "_QjYF6TExC-6E8aeBPrG";
+        String token = "dQCnbF4x3KLiYkkABB4w";
 
         builder.addInterceptor(new Interceptor() {
             @Override

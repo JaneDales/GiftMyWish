@@ -21,7 +21,12 @@
     <string name="friends">Friends</string>
     <string name="settings">Settings</string>
     <string name="my_events">My Events</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="events">Events</string>
+    <string name="status">Status</string>
+    <string name="days_left">100 days left</string>
+    <string name="integer">10</string>
+    <string name="my_wish">My wish</string>
+    <string name="log_out">Log Out</string>
+
 
 </resources>
