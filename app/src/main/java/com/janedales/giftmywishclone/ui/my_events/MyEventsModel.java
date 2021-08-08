@@ -2,6 +2,7 @@ package com.janedales.giftmywishclone.ui.my_events;
 
 import com.janedales.giftmywishclone.data.network.RetrofitInstance;
 import com.janedales.giftmywishclone.data.network.response.MyEventsListResponse;
+import com.janedales.giftmywishclone.data.network.response.UserResponse;
 import com.janedales.giftmywishclone.data.service.UserService;
 
 import retrofit2.Call;
@@ -29,6 +30,25 @@ public class MyEventsModel {
 
             @Override
             public void onFailure(Call<MyEventsListResponse> call, Throwable t) {callback.onFail(t); }
+        });
+    }
+    public void getUserProfile(int id){
+        /** Create handle for the RetrofitInstance interface*/
+        UserService service = RetrofitInstance.getRetrofitInstance().create(UserService.class);
+
+        /** Call the method with parameter in the interface to get the notice data*/
+        Call<UserResponse> call = service.getUserProfile(id);
+
+        call.enqueue(new Callback<UserResponse>() {
+            @Override
+            public void onResponse(Call<UserResponse> call, Response<UserResponse> response) {
+                callback.onUser(response.body().getUser());
+            }
+
+            @Override
+            public void onFailure(Call<UserResponse> call, Throwable t) {
+                callback.onFail(t);
+            }
         });
     }
 }

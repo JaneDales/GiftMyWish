@@ -35,6 +35,12 @@ public class User {
     private boolean isFriend;
     @SerializedName("authentication_token")
     private String authenticationToken;
+    @SerializedName("bio")
+    private String bio;
+
+    public String getBio() {
+        return bio;
+    }
 
     public int getId() {
         return id;

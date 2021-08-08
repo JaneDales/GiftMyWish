@@ -1,6 +1,7 @@
 package com.janedales.giftmywishclone.ui.my_events;
 
 import com.janedales.giftmywishclone.data.entity.Event;
+import com.janedales.giftmywishclone.data.entity.User;
 
 import java.util.List;
 
@@ -17,6 +18,10 @@ public class MyEventsPresenter implements MyEventsModelCallback {
         model.getMyEvents();
     }
 
+    public void getUser(int id){
+        model.getUserProfile(id);
+    }
+
     @Override
     public void onSuccess(List<Event> list) {
         contract.ovMyEvents(list);
@@ -25,5 +30,10 @@ public class MyEventsPresenter implements MyEventsModelCallback {
     @Override
     public void onFail(Throwable t) {
         contract.onFail(t);
+    }
+
+    @Override
+    public void onUser(User user) {
+        contract.onUser(user);
     }
 }

@@ -26,7 +26,7 @@ public class LoginPresenter implements LoginModelCallback {
         String token = user.getAuthenticationToken();
         preferencesHelper.edit().putString("token", token).apply();
         contract.hideProgress();
-        contract.onLoginSuccess();
+        contract.onLoginSuccess(user);
     }
 
     @Override

@@ -13,6 +13,7 @@ import retrofit2.http.Body;
 import retrofit2.http.DELETE;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
+import retrofit2.http.Path;
 import retrofit2.http.Query;
 
 public interface UserService {
@@ -40,4 +41,10 @@ public interface UserService {
 
     @DELETE("api/v1/providers/logout")
     Call<ResponseBody> logOut();
+
+    @GET("api/v1/profiles/{id}")
+    Call<UserResponse> getUserProfile(
+            @Path("id") int id
+    );
+
 }

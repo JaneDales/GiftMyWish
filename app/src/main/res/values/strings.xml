@@ -27,6 +27,8 @@
     <string name="integer">10</string>
     <string name="my_wish">My wish</string>
     <string name="log_out">Log Out</string>
+    <string name="welcome_to_my_profile">Welcome to my profile!</string>
+    <string name="first_and_last_name">%s %s</string>
 
 
 </resources>
