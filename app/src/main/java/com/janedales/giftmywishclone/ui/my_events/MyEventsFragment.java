@@ -4,6 +4,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
@@ -17,11 +18,13 @@ import com.janedales.giftmywishclone.R;
 import com.janedales.giftmywishclone.data.entity.Event;
 import com.janedales.giftmywishclone.data.entity.User;
 import com.janedales.giftmywishclone.data.helpers.SharedPreferencesHelper;
+import com.janedales.giftmywishclone.ui.my_events.details.MyEventsDetailsFragment;
 
 
 import java.util.List;
 
-public class MyEventsFragment extends Fragment implements MyEventsContract, SwipeRefreshLayout.OnRefreshListener {
+public class MyEventsFragment extends Fragment implements MyEventsContract,
+        SwipeRefreshLayout.OnRefreshListener, ClickListenerEvent{
 
     private SwipeRefreshLayout mSwipeRefreshLayout;
     private MyEventsPresenter presenter = new MyEventsPresenter(this);
@@ -64,13 +67,14 @@ public class MyEventsFragment extends Fragment implements MyEventsContract, Swip
             tvStatus.setText(getResources().getString(R.string.welcome_to_my_profile));
         }
         else{
-            tvStatus.setText(user.getBio());}
+            tvStatus.setText(user.getBio());
+        }
 
     }
 
     @Override
     public void ovMyEvents(List<Event> list) {
-        adapter = new MyEventsAdapter(list);
+        adapter = new MyEventsAdapter(list, this);
         recyclerView.setAdapter(adapter);
         mSwipeRefreshLayout.setRefreshing(false);
     }
@@ -84,5 +88,13 @@ public class MyEventsFragment extends Fragment implements MyEventsContract, Swip
     @Override
     public void onRefresh() {
         presenter.getMyEventsList();
+    }
+
+    @Override
+    public void onEventClick(Event event) {
+        FragmentTransaction ft = getChildFragmentManager().beginTransaction();
+        ft.add(R.id.container, new MyEventsDetailsFragment());
+        ft.addToBackStack(null);
+        ft.commit();
     }
 }

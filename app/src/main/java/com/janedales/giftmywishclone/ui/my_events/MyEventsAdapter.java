@@ -20,7 +20,11 @@ import java.util.List;
 public class MyEventsAdapter extends RecyclerView.Adapter<MyEventsAdapter.ViewHolder> {
 
     private List<Event> list;
-    public MyEventsAdapter(List<Event> list) {this.list = list; }
+    private ClickListenerEvent clickListenerEvent;
+    public MyEventsAdapter(List<Event> list, ClickListenerEvent clickListenerEvent) {
+        this.list = list;
+        this.clickListenerEvent = clickListenerEvent;
+    }
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -57,6 +61,16 @@ public class MyEventsAdapter extends RecyclerView.Adapter<MyEventsAdapter.ViewHo
         else{
             holder.ivLike.setImageResource(R.drawable.ic_btn_yeay_black);
         }
+
+        MyGiftsAdapter myGiftsAdapter = new MyGiftsAdapter(event.getGifts());
+        holder.recyclerViewGifts.setAdapter(myGiftsAdapter);
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                clickListenerEvent.onEventClick(event);
+            }
+        });
     }
 
     private void loadImage(String url, ImageView imageView) {
@@ -75,6 +89,7 @@ public class MyEventsAdapter extends RecyclerView.Adapter<MyEventsAdapter.ViewHo
 
         public ImageView ivCover, ivLike;
         public TextView tvDaysLeft, tvTitle, tvLikesCount, tvCommentsCount;
+        public RecyclerView recyclerViewGifts;
 
 
         public ViewHolder(View itemView) {
@@ -86,6 +101,7 @@ public class MyEventsAdapter extends RecyclerView.Adapter<MyEventsAdapter.ViewHo
             tvLikesCount = (TextView) itemView.findViewById(R.id.tvLikesCount);
             tvCommentsCount = (TextView) itemView.findViewById(R.id.tvCommentsCount);
             ivLike = itemView.findViewById(R.id.btnLike);
+            recyclerViewGifts = itemView.findViewById(R.id.recyclerViewGifts);
         }
     }
 }
