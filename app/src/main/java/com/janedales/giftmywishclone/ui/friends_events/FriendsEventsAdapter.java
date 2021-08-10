@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.janedales.giftmywishclone.R;
 import com.janedales.giftmywishclone.data.entity.Event;
+import com.janedales.giftmywishclone.data.helpers.Constants;
 import com.janedales.giftmywishclone.data.helpers.DateHelper;
 
 
@@ -37,11 +38,14 @@ public class FriendsEventsAdapter extends RecyclerView.Adapter<FriendsEventsAdap
         long days = DateHelper.getDaysLeft(event.getEndDate());
         holder.tvDaysLeft.setText(days + " DAYS LEFT");
 
-        holder.tvUserName.setText(event.getUser().getUserName());
+        holder.tvUserName.setText(event.getUser().getFirstName() + " " + event.getUser().getLastName());
         holder.tvTitle.setText(event.getTitle());
-        Glide.with(holder.tvDaysLeft.getContext())
-                .load(event.getPhoto().getUrl())
-                .into(holder.ivCover);
+        if (event.getPhoto().getUrl() == null) {
+            loadImage(Constants.AVATAR_PLACEHOLDER, holder.ivCover);
+        }
+        else {
+            loadImage(event.getPhoto().getUrl(), holder.ivCover);
+        }
 
         if(days < 10){
             holder.tvDaysLeft.setBackgroundTintList(ContextCompat.getColorStateList(holder.tvDaysLeft.getContext(), R.color.red));
@@ -49,6 +53,12 @@ public class FriendsEventsAdapter extends RecyclerView.Adapter<FriendsEventsAdap
         else {
             holder.tvDaysLeft.setBackgroundTintList(ContextCompat.getColorStateList(holder.tvDaysLeft.getContext(), R.color.gray));
         }
+    }
+
+    private void loadImage(String url, ImageView imageView) {
+        Glide.with(imageView.getContext())
+                .load(url)
+                .into(imageView);
     }
 
     @Override
@@ -63,9 +73,9 @@ public class FriendsEventsAdapter extends RecyclerView.Adapter<FriendsEventsAdap
 
         public ViewHolder(View itemView) {
             super(itemView);
-            tvDaysLeft = (TextView) itemView.findViewById(R.id.tvTitle);
-            tvUserName = (TextView) itemView.findViewById(R.id.tvUserName);
-            tvTitle = (TextView) itemView.findViewById(R.id.tvTitle);
+            tvDaysLeft = itemView.findViewById(R.id.tvDaysLeft);
+            tvUserName = itemView.findViewById(R.id.tvUserName);
+            tvTitle = itemView.findViewById(R.id.tvTitle);
             ivCover = itemView.findViewById(R.id.ivCover);
         }
     }

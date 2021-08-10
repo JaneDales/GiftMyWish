@@ -1,11 +1,8 @@
 package com.janedales.giftmywishclone.ui.register;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
-import android.text.format.DateUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
@@ -16,12 +13,13 @@ import android.widget.Toast;
 import com.janedales.giftmywishclone.MainActivity;
 import com.janedales.giftmywishclone.R;
 import com.janedales.giftmywishclone.data.entity.User;
+import com.janedales.giftmywishclone.ui.base.BaseActivity;
 import com.janedales.giftmywishclone.ui.views.CollapsedHintTextInputLayout;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
-public class RegisterActivity extends AppCompatActivity implements RegisterContract {
+public class RegisterActivity extends BaseActivity implements RegisterContract {
 
     private Button btnRegister;
     private EditText etFirstName, etLastName, etDateOfBirth, etEmail, etUserName, etPassword, etEnterCode;

@@ -12,9 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.janedales.giftmywishclone.R;
 import com.janedales.giftmywishclone.data.entity.User;
-import com.janedales.giftmywishclone.data.helpers.DateHelper;
-import com.janedales.giftmywishclone.ui.my_events.ClickListenerEvent;
-import com.janedales.giftmywishclone.ui.my_events.MyGiftsAdapter;
+import com.janedales.giftmywishclone.data.helpers.Constants;
 
 import java.util.List;
 
@@ -37,8 +35,14 @@ public class ParticipantsAdapter extends RecyclerView.Adapter<ParticipantsAdapte
     public void onBindViewHolder(ViewHolder holder, int position) {
         final User user = list.get(position);
 
+        holder.tvName.setText(user.getUserName());
 
-        loadImage(user.getAvatar().getUrl(), holder.ivAvatar);
+        if (user.getAvatar().getUrl() == null) {
+            loadImage(Constants.AVATAR_PLACEHOLDER, holder.ivAvatar);
+        }
+        else {
+            loadImage(user.getAvatar().getUrl(), holder.ivAvatar);
+        }
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override

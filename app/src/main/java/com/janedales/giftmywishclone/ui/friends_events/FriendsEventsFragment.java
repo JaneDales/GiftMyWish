@@ -13,12 +13,13 @@ import android.widget.Toast;
 
 import com.janedales.giftmywishclone.R;
 import com.janedales.giftmywishclone.data.entity.Event;
+import com.janedales.giftmywishclone.ui.base.BaseFragment;
 
 
 import java.util.List;
 
 
-public class FriendsEventsFragment extends Fragment implements FriendsEventsContract, SwipeRefreshLayout.OnRefreshListener {
+public class FriendsEventsFragment extends BaseFragment implements FriendsEventsContract, SwipeRefreshLayout.OnRefreshListener {
 
     private FriendsEventsPresenter presenter = new FriendsEventsPresenter(this);
     private RecyclerView recycler1;

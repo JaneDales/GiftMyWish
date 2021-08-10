@@ -211,7 +211,7 @@
                         android:id="@+id/textParticipants"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        tools:text="Will be displayed when you get at least one donate"
+                        android:text="@string/donates_empty"
                         android:textColor="@color/black"
                         android:textSize="16sp"
                         android:gravity="center"
@@ -221,8 +221,9 @@
                         android:id="@+id/recyclerViewParticipants"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
+                        android:orientation="horizontal"
                         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                        tools:itemCount="1"
+                        tools:itemCount="10"
                         tools:listitem="@layout/item_participant"/>
                 </FrameLayout>
             </androidx.cardview.widget.CardView>

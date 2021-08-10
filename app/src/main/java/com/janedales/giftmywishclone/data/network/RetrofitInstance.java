@@ -14,6 +14,8 @@ public class RetrofitInstance {
     private static Retrofit retrofit;
     private static final String BASE_URL = "https://www.giftmywish.app/";
 
+    private static String mToken = "";
+
     /**
      * Create an instance of Retrofit object
      * */
@@ -23,14 +25,12 @@ public class RetrofitInstance {
         interceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
         OkHttpClient.Builder builder = new OkHttpClient.Builder();
 
-        String token = "zgQVMgPo3_55X5cthsRT";
-
         builder.addInterceptor(new Interceptor() {
             @Override
             public Response intercept(Chain chain) throws IOException {
                 Request.Builder request = chain.request().newBuilder();
                 request.addHeader("Content-Type", "application/json");
-                request.addHeader("Authorization", token);
+                request.addHeader("Authorization", mToken);
                 return chain.proceed(request.build());
             }
         });
@@ -47,4 +47,7 @@ public class RetrofitInstance {
         return retrofit;
     }
 
+    public static void setmToken(String token) {
+        mToken = token;
+    }
 }

@@ -10,6 +10,7 @@ import android.view.View;
 
 import com.janedales.giftmywishclone.MainActivity;
 import com.janedales.giftmywishclone.R;
+import com.janedales.giftmywishclone.data.helpers.Constants;
 import com.janedales.giftmywishclone.data.helpers.SharedPreferencesHelper;
 import com.janedales.giftmywishclone.ui.entry.EntryActivity;
 
@@ -35,7 +36,7 @@ public class SplashActivity extends AppCompatActivity {
             public void run() {
 
                 SharedPreferences preferences = SharedPreferencesHelper.getInstance(SplashActivity.this);
-                String token = preferences.getString("token", "");
+                String token = preferences.getString(Constants.TOKEN, "");
 
                 if (token.isEmpty()) {
                     Intent intent = new Intent(SplashActivity.this, EntryActivity.class);

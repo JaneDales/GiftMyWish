@@ -1,7 +1,5 @@
 package com.janedales.giftmywishclone.ui.login;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -15,10 +13,12 @@ import android.widget.Toast;
 import com.janedales.giftmywishclone.MainActivity;
 import com.janedales.giftmywishclone.R;
 import com.janedales.giftmywishclone.data.entity.User;
+import com.janedales.giftmywishclone.data.helpers.Constants;
 import com.janedales.giftmywishclone.data.helpers.SharedPreferencesHelper;
+import com.janedales.giftmywishclone.ui.base.BaseActivity;
 import com.janedales.giftmywishclone.ui.register.RegisterActivity;
 
-public class LoginActivity extends AppCompatActivity implements LoginContract {
+public class LoginActivity extends BaseActivity implements LoginContract {
 
     private LoginPresenter presenter;
     private TextView tvRegister;
@@ -65,7 +65,8 @@ public class LoginActivity extends AppCompatActivity implements LoginContract {
     @Override
     public void onLoginSuccess(User user) {
         SharedPreferences sharedPreferences = SharedPreferencesHelper.getInstance(this);
-        sharedPreferences.edit().putInt("id", user.getId()).apply();
+        sharedPreferences.edit().putString(Constants.TOKEN, user.getAuthenticationToken()).apply();
+        sharedPreferences.edit().putInt(Constants.USER_ID, user.getId()).apply();
         startActivity(new Intent(LoginActivity.this, MainActivity.class));
     }
 

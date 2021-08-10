@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.janedales.giftmywishclone.R;
 import com.janedales.giftmywishclone.data.entity.Event;
+import com.janedales.giftmywishclone.data.helpers.Constants;
 import com.janedales.giftmywishclone.data.helpers.DateHelper;
 
 
@@ -50,7 +51,7 @@ public class MyEventsAdapter extends RecyclerView.Adapter<MyEventsAdapter.ViewHo
         }
 
         if (event.getPhoto().getUrl() == null) {
-            loadImage("https://www.giftmywish.io/logo_1024.jpg", holder.ivCover);
+            loadImage(Constants.AVATAR_PLACEHOLDER, holder.ivCover);
         }
         else {
             loadImage(event.getPhoto().getUrl(), holder.ivCover);

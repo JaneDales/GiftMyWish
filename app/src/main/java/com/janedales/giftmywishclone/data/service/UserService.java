@@ -1,6 +1,7 @@
 package com.janedales.giftmywishclone.data.service;
 
 import com.janedales.giftmywishclone.data.network.request.ConfirmCodeRequest;
+import com.janedales.giftmywishclone.data.network.request.LoginUserSocialRequest;
 import com.janedales.giftmywishclone.data.network.request.LoginUserRequest;
 import com.janedales.giftmywishclone.data.network.request.RegisterUserRequest;
 import com.janedales.giftmywishclone.data.network.response.EventsListResponse;
@@ -47,4 +48,6 @@ public interface UserService {
             @Path("id") int id
     );
 
+    @POST("api/v1/providers/login")
+    Call<UserResponse> login(@Body LoginUserSocialRequest loginUserSocialRequest);
 }

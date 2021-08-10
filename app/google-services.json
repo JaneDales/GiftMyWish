@@ -1,0 +1,109 @@
+{
+  "project_info": {
+    "project_number": "592213910014",
+    "firebase_url": "https://giftwishes-ca98b.firebaseio.com",
+    "project_id": "giftwishes-ca98b",
+    "storage_bucket": "giftwishes-ca98b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:592213910014:android:b68da7092348ef4e7ca0af",
+        "android_client_info": {
+          "package_name": "com.andyshon.giftwishes"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "592213910014-j1vfivt1sp7hrnatgq5psie91f2g2f61.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.andyshon.giftwishes",
+            "certificate_hash": "5f5693d5a366d7f3bdf38f0ab7578aafc5163ab7"
+          }
+        },
+        {
+          "client_id": "592213910014-qvbraq3fve43ta93538egr8n618c4fqh.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.andyshon.giftwishes",
+            "certificate_hash": "94f09856030f01b682a6a20107eccf4324da72dd"
+          }
+        },
+        {
+          "client_id": "592213910014-cqgf512gj03in8c62u8o2b00te6n6f7j.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDnaKH9WJS4u_zFRAoIqg5HVbYOqEDRSWs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "592213910014-cqgf512gj03in8c62u8o2b00te6n6f7j.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "592213910014-spkn77h1hl6q1s6ucfchqk3thdrok1rt.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.melina.giftwishes.staging",
+                "app_store_id": "1507248025"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:592213910014:android:0fe7b45a074d692b7ca0af",
+        "android_client_info": {
+          "package_name": "com.andyshon.giftwishes.staging"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "592213910014-ea94a7sf5kjacjhtqn9nhpr75s1d1qq7.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.andyshon.giftwishes.staging",
+            "certificate_hash": "94f09856030f01b682a6a20107eccf4324da72dd"
+          }
+        },
+        {
+          "client_id": "592213910014-cqgf512gj03in8c62u8o2b00te6n6f7j.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDnaKH9WJS4u_zFRAoIqg5HVbYOqEDRSWs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "592213910014-cqgf512gj03in8c62u8o2b00te6n6f7j.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "592213910014-spkn77h1hl6q1s6ucfchqk3thdrok1rt.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.melina.giftwishes.staging",
+                "app_store_id": "1507248025"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

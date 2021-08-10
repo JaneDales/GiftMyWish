@@ -11,14 +11,17 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.janedales.giftmywishclone.R;
 import com.janedales.giftmywishclone.data.entity.Event;
 import com.janedales.giftmywishclone.data.entity.Gift;
 import com.janedales.giftmywishclone.data.entity.User;
-import com.janedales.giftmywishclone.ui.my_events.ClickListenerEvent;
 
 import org.jetbrains.annotations.NotNull;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class MyEventsDetailsFragment extends Fragment implements ClickListenerGift {
 
@@ -26,8 +29,8 @@ public class MyEventsDetailsFragment extends Fragment implements ClickListenerGi
 
     private Event event;
     private MyEventsDetailsAdapter myEventsDetailsAdapter;
-    private TextView tvTitle, tvDate;
-    private RecyclerView recyclerViewGifts;
+    private TextView tvTitle, tvDate, tvParticipants;
+    private RecyclerView recyclerViewGifts, recyclerViewParticipants;
 
     public static MyEventsDetailsFragment newInstance(Event event) {
         MyEventsDetailsFragment fragment = new MyEventsDetailsFragment();
@@ -57,7 +60,9 @@ public class MyEventsDetailsFragment extends Fragment implements ClickListenerGi
 
         tvTitle = view.findViewById(R.id.tvTitle);
         tvDate = view.findViewById(R.id.tvDate);
+        tvParticipants = view.findViewById(R.id.textParticipants);
         recyclerViewGifts = view.findViewById(R.id.recyclerView);
+        recyclerViewParticipants = view.findViewById(R.id.recyclerViewParticipants);
         myEventsDetailsAdapter = new MyEventsDetailsAdapter(event.getGifts(), this);
 
 
@@ -66,15 +71,36 @@ public class MyEventsDetailsFragment extends Fragment implements ClickListenerGi
         String s = event.getEndDate().split("T")[0];
         tvDate.setText("Expiry: " + s);
 
-    }
+        List<User> listUser = new ArrayList<>();
+        boolean hasDonations = false;
 
-    @Override
-    public void onUserClick(User user) {
+        for(int k = 0; k < event.getGifts().size(); k++) {
+            Gift gift = event.getGifts().get(k);
+
+            if(!gift.getDonations().isEmpty()) {
+                hasDonations = true;
+                for (int i = 0; i < gift.getDonations().size(); i++){
+                    User user = gift.getDonations().get(i).getUser();
+                    listUser.add(user);
+                }
+                tvParticipants.setVisibility(View.GONE);
+                ParticipantsAdapter participantsAdapter = new ParticipantsAdapter(listUser, new ClickListenerUser() {
+                    @Override
+                    public void onUserClick(User user) {
+                        Toast.makeText(requireContext(), user.getUserName(), Toast.LENGTH_SHORT).show();
+                    }
+                });
+                recyclerViewParticipants.setAdapter(participantsAdapter);
+            }
+        }
+        if (!hasDonations) {
+            tvParticipants.setVisibility(View.VISIBLE);
+        }
 
     }
 
     @Override
     public void onGiftClick(Gift gift) {
-
+        // TODO: 10.08.2021 open image in full size
     }
 }

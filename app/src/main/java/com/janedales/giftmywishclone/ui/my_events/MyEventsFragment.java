@@ -3,7 +3,6 @@ package com.janedales.giftmywishclone.ui.my_events;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 
-import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
@@ -17,13 +16,15 @@ import android.widget.Toast;
 import com.janedales.giftmywishclone.R;
 import com.janedales.giftmywishclone.data.entity.Event;
 import com.janedales.giftmywishclone.data.entity.User;
+import com.janedales.giftmywishclone.data.helpers.Constants;
 import com.janedales.giftmywishclone.data.helpers.SharedPreferencesHelper;
+import com.janedales.giftmywishclone.ui.base.BaseFragment;
 import com.janedales.giftmywishclone.ui.my_events.details.MyEventsDetailsFragment;
 
 
 import java.util.List;
 
-public class MyEventsFragment extends Fragment implements MyEventsContract,
+public class MyEventsFragment extends BaseFragment implements MyEventsContract,
         SwipeRefreshLayout.OnRefreshListener, ClickListenerEvent{
 
     private SwipeRefreshLayout mSwipeRefreshLayout;
@@ -53,7 +54,7 @@ public class MyEventsFragment extends Fragment implements MyEventsContract,
         presenter.getMyEventsList();
 
         SharedPreferences sharedPreferences = SharedPreferencesHelper.getInstance(requireActivity());
-        int id = sharedPreferences.getInt("id", 0);
+        int id = sharedPreferences.getInt(Constants.USER_ID, 0);
         presenter.getUser(id);
     }
 

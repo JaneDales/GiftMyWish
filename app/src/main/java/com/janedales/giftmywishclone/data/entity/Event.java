@@ -22,7 +22,7 @@ public class Event implements Serializable {
     @SerializedName("like_status") private boolean likeStatus;
     @SerializedName("photo") private Avatar photo;
     @SerializedName("gifts") private List<Gift> gifts;
-    @SerializedName("hide_ids") private List<HideIds> hideIds;
+    @SerializedName("hide_ids") private List<Integer> hideIds;
 
     public int getId() {
         return id;
@@ -84,7 +84,7 @@ public class Event implements Serializable {
         return gifts;
     }
 
-    public List<HideIds> getHideIds() {
+    public List<Integer> getHideIds() {
         return hideIds;
     }
 }
