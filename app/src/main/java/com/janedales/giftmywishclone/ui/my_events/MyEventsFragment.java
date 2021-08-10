@@ -93,7 +93,7 @@ public class MyEventsFragment extends Fragment implements MyEventsContract,
     @Override
     public void onEventClick(Event event) {
         FragmentTransaction ft = getChildFragmentManager().beginTransaction();
-        ft.add(R.id.container, new MyEventsDetailsFragment());
+        ft.add(R.id.container, MyEventsDetailsFragment.newInstance(event));
         ft.addToBackStack(null);
         ft.commit();
     }

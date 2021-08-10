@@ -4,10 +4,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".ui.my_events.details.MyEventsDetailsFragment"
     android:background="@color/white"
     android:clickable="true"
-    android:focusable="true">
+    android:focusable="true"
+    tools:context=".ui.my_events.details.MyEventsDetailsFragment">
 
     <ImageView
         android:id="@+id/ivAvatar"
@@ -118,7 +118,7 @@
             android:id="@+id/tvGrandTotal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            tools:text="Grand Total Gifted to you:"
+            android:text="Grand Total Gifted to you:"
             android:textSize="18sp"
             android:background="@drawable/bg_circle_white"
             android:layout_marginHorizontal="32dp"
@@ -131,7 +131,7 @@
             android:id="@+id/tvUSD"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            tools:text="0 USD"
+            android:text="0 USD"
             android:textSize="24sp"
             android:textColor="@color/purple_dark"
             android:textStyle="bold"
@@ -145,7 +145,7 @@
         android:id="@+id/tvAddaGift"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        tools:text="+ Add a Gift"
+        android:text="+ Add a Gift"
         android:textSize="18sp"
         android:paddingHorizontal="24dp"
         android:paddingVertical="8dp"
@@ -155,80 +155,79 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         />
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/participants"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@drawable/bg_round_events"
-        android:layout_marginHorizontal="8dp"
-        android:layout_marginBottom="18dp"
-        app:layout_constraintBottom_toTopOf="@+id/tvAddaGift"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent">
-        <TextView
-            android:id="@+id/textParticipants"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            tools:text="Will be displayed when you get at least one donate"
-            android:textColor="@color/black"
-            android:textSize="16sp"
-            android:gravity="center"
-            android:paddingVertical="16dp"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            />
-    </androidx.constraintlayout.widget.ConstraintLayout>
-    <TextView
-        android:id="@+id/tvParticipants"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Participants"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        android:textColor="@color/purple_dark"
-        android:layout_marginVertical="8dp"
-        android:layout_marginLeft="18dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/participants"
-        />
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/expired"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@drawable/bg_round_events"
-        android:layout_margin="8dp"
-        app:layout_constraintBottom_toTopOf="@id/tvParticipants"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        >
-        <TextView
-            android:id="@+id/tvExpired"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            tools:text="Expired. No funds."
-            android:textSize="22sp"
-            android:gravity="center"
-            android:padding="8dp"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            />
-    </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerView"
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        app:layout_constraintHorizontal_bias="0.0"
-        tools:layout_editor_absoluteY="16dp"
-        tools:listitem="@layout/item_my_events_expired"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/anniversary"
-        app:layout_constraintBottom_toTopOf="@+id/expired"
-        />
+        app:layout_constraintTop_toBottomOf="@id/anniversary"
+        app:layout_constraintBottom_toTopOf="@id/tvAddaGift">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                tools:itemCount="1"
+                tools:listitem="@layout/item_my_gift"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/anniversary" />
+
+            <TextView
+                android:id="@+id/tvParticipants"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Participants"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:textColor="@color/purple_dark"
+                android:layout_marginVertical="8dp"
+                android:layout_marginLeft="18dp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/recyclerView"
+                />
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="8dp"
+                android:layout_marginBottom="18dp"
+                app:cardCornerRadius="10dp"
+                android:elevation="4dp">
+                <FrameLayout
+                    android:id="@+id/participants"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="8dp"
+                    android:layout_gravity="center">
+                    <TextView
+                        android:id="@+id/textParticipants"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        tools:text="Will be displayed when you get at least one donate"
+                        android:textColor="@color/black"
+                        android:textSize="16sp"
+                        android:gravity="center"
+                        android:paddingVertical="22dp"
+                        />
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/recyclerViewParticipants"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                        tools:itemCount="1"
+                        tools:listitem="@layout/item_participant"/>
+                </FrameLayout>
+            </androidx.cardview.widget.CardView>
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

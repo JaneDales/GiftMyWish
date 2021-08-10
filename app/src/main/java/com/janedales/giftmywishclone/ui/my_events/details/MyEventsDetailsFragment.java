@@ -2,48 +2,37 @@ package com.janedales.giftmywishclone.ui.my_events.details;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.janedales.giftmywishclone.R;
+import com.janedales.giftmywishclone.data.entity.Event;
+import com.janedales.giftmywishclone.data.entity.Gift;
+import com.janedales.giftmywishclone.data.entity.User;
+import com.janedales.giftmywishclone.ui.my_events.ClickListenerEvent;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link MyEventsDetailsFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
-public class MyEventsDetailsFragment extends Fragment {
+import org.jetbrains.annotations.NotNull;
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
+public class MyEventsDetailsFragment extends Fragment implements ClickListenerGift {
+
     private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
 
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
+    private Event event;
+    private MyEventsDetailsAdapter myEventsDetailsAdapter;
+    private TextView tvTitle, tvDate;
+    private RecyclerView recyclerViewGifts;
 
-    public MyEventsDetailsFragment() {
-        // Required empty public constructor
-    }
-
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment MyEventsDetailsFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static MyEventsDetailsFragment newInstance(String param1, String param2) {
+    public static MyEventsDetailsFragment newInstance(Event event) {
         MyEventsDetailsFragment fragment = new MyEventsDetailsFragment();
         Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
+        args.putSerializable(ARG_PARAM1, event);
         fragment.setArguments(args);
         return fragment;
     }
@@ -52,15 +41,40 @@ public class MyEventsDetailsFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
+            event = (Event) getArguments().getSerializable(ARG_PARAM1);
         }
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_my_events_details, container, false);
+    }
+
+    @Override
+    public void onViewCreated(@NonNull @NotNull View view, @Nullable @org.jetbrains.annotations.Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
+        tvTitle = view.findViewById(R.id.tvTitle);
+        tvDate = view.findViewById(R.id.tvDate);
+        recyclerViewGifts = view.findViewById(R.id.recyclerView);
+        myEventsDetailsAdapter = new MyEventsDetailsAdapter(event.getGifts(), this);
+
+
+        tvTitle.setText(event.getTitle());
+        recyclerViewGifts.setAdapter(myEventsDetailsAdapter);
+        String s = event.getEndDate().split("T")[0];
+        tvDate.setText("Expiry: " + s);
+
+    }
+
+    @Override
+    public void onUserClick(User user) {
+
+    }
+
+    @Override
+    public void onGiftClick(Gift gift) {
+
     }
 }

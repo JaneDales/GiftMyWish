@@ -2,9 +2,10 @@ package com.janedales.giftmywishclone.data.entity;
 
 import com.google.gson.annotations.SerializedName;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class Event {
+public class Event implements Serializable {
 
     @SerializedName("id") private int id;
     @SerializedName("public_id") private String publicId;

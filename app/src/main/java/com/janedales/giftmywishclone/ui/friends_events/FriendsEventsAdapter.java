@@ -63,7 +63,7 @@ public class FriendsEventsAdapter extends RecyclerView.Adapter<FriendsEventsAdap
 
         public ViewHolder(View itemView) {
             super(itemView);
-            tvDaysLeft = (TextView) itemView.findViewById(R.id.tvDaysLeft);
+            tvDaysLeft = (TextView) itemView.findViewById(R.id.tvTitle);
             tvUserName = (TextView) itemView.findViewById(R.id.tvUserName);
             tvTitle = (TextView) itemView.findViewById(R.id.tvTitle);
             ivCover = itemView.findViewById(R.id.ivCover);
