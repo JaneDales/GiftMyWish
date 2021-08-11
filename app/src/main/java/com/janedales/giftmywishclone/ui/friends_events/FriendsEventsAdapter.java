@@ -21,9 +21,13 @@ import java.util.List;
 public class FriendsEventsAdapter extends RecyclerView.Adapter<FriendsEventsAdapter.ViewHolder> {
 
     private List<Event> list;
-    public FriendsEventsAdapter(List<Event> list) {
+    private ClickListenerFriendsEvents clickListenerFriendsEvents;
+
+    public FriendsEventsAdapter(List<Event> list, ClickListenerFriendsEvents clickListenerFriendsEvents) {
         this.list = list;
+        this.clickListenerFriendsEvents = clickListenerFriendsEvents;
     }
+
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -53,6 +57,12 @@ public class FriendsEventsAdapter extends RecyclerView.Adapter<FriendsEventsAdap
         else {
             holder.tvDaysLeft.setBackgroundTintList(ContextCompat.getColorStateList(holder.tvDaysLeft.getContext(), R.color.gray));
         }
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                clickListenerFriendsEvents.onEventClick(event);
+            }
+        });
     }
 
     private void loadImage(String url, ImageView imageView) {

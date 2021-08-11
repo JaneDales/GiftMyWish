@@ -3,6 +3,7 @@ package com.janedales.giftmywishclone.ui.friends_events;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
@@ -14,12 +15,15 @@ import android.widget.Toast;
 import com.janedales.giftmywishclone.R;
 import com.janedales.giftmywishclone.data.entity.Event;
 import com.janedales.giftmywishclone.ui.base.BaseFragment;
+import com.janedales.giftmywishclone.ui.friends_events.details.FriendsEventsDetailsFragment;
+import com.janedales.giftmywishclone.ui.my_events.details.MyEventsDetailsFragment;
 
 
 import java.util.List;
 
 
-public class FriendsEventsFragment extends BaseFragment implements FriendsEventsContract, SwipeRefreshLayout.OnRefreshListener {
+public class FriendsEventsFragment extends BaseFragment implements FriendsEventsContract,
+        SwipeRefreshLayout.OnRefreshListener, ClickListenerFriendsEvents {
 
     private FriendsEventsPresenter presenter = new FriendsEventsPresenter(this);
     private RecyclerView recycler1;
@@ -44,7 +48,7 @@ public class FriendsEventsFragment extends BaseFragment implements FriendsEvents
 
     @Override
     public void ovEventsLoaded(List<Event> list) {
-        adapter = new FriendsEventsAdapter(list);
+        adapter = new FriendsEventsAdapter(list, this);
         recycler1.setAdapter(adapter);
         swipeRefreshLayout.setRefreshing(false);
     }
@@ -58,5 +62,13 @@ public class FriendsEventsFragment extends BaseFragment implements FriendsEvents
     @Override
     public void onRefresh() {
         presenter.getEventsList();
+    }
+
+    @Override
+    public void onEventClick(Event event) {
+        FragmentTransaction ft = getChildFragmentManager().beginTransaction();
+        ft.add(R.id.container, FriendsEventsDetailsFragment.newInstance(event));
+        ft.addToBackStack(null);
+        ft.commit();
     }
 }
