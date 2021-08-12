@@ -1,7 +1,10 @@
 package com.janedales.giftmywishclone.ui.friends_events;
 
+import android.content.Context;
 import android.os.Bundle;
 
+import androidx.activity.OnBackPressedCallback;
+import androidx.annotation.NonNull;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
@@ -18,6 +21,8 @@ import com.janedales.giftmywishclone.ui.base.BaseFragment;
 import com.janedales.giftmywishclone.ui.friends_events.details.FriendsEventsDetailsFragment;
 import com.janedales.giftmywishclone.ui.user_profile.UserProfileFragment;
 
+
+import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
 
@@ -78,5 +83,25 @@ public class FriendsEventsFragment extends BaseFragment implements FriendsEvents
         ft.add(R.id.container, UserProfileFragment.newInstance(user));
         ft.addToBackStack(null);
         ft.commit();
+    }
+
+    @Override
+    public void onAttach(@NonNull @NotNull Context context) {
+        super.onAttach(context);
+        OnBackPressedCallback backCallback = new OnBackPressedCallback(true) {
+            @Override
+            public void handleOnBackPressed() {
+                // Remove all fragments from the childFragmentManager,
+                // but exclude the first added child fragment.
+                // This child fragment will be deleted with its parent.
+                if (getChildFragmentManager().getBackStackEntryCount() > 1) {
+                    getChildFragmentManager().popBackStack();
+                    return;
+                }
+                // Delete parent fragment
+//                getParentFragmentManager().popBackStack();
+            }
+        };
+        requireActivity().getOnBackPressedDispatcher().addCallback(this, backCallback);
     }
 }

@@ -30,8 +30,11 @@
     <string name="welcome_to_my_profile">Welcome to my profile!</string>
     <string name="first_and_last_name">%s %s</string>
     <string name="donates_empty">Will be displayed when you get at least one donate</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="likes_format">%d Likes.</string>
+    <string name="comments_format">%d Comments</string>
+    <string name="expiry_format">Expiry: %s</string>
+    <string name="funded_format">%d&#x0025; Funded</string>
+    <string name="total_funded_format">$%d / $%d</string>
 
 
 </resources>

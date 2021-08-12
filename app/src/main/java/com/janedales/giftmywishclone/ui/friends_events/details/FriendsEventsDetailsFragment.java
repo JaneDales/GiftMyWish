@@ -18,12 +18,12 @@ import com.janedales.giftmywishclone.data.helpers.DateHelper;
 public class FriendsEventsDetailsFragment extends Fragment {
 
     private static final String ARG_PARAM1 = "param1";
+    private FriendsEventsDetailsAdapter adapter;
 
     private Event event;
     private ImageView ivAvatar, btnLike;
-    private TextView tvUserName, tvUserStatus, tvDate, tvTitle, tvDescription, tvComments, tvLike;
+    private TextView tvUserName, tvUserStatus, tvDate, tvTitle, tvDescription, tvComments, tvLike, tvWishList;
     private RecyclerView recyclerView;
-    //adapter
 
     public static FriendsEventsDetailsFragment newInstance(Event event) {
         FriendsEventsDetailsFragment fragment = new FriendsEventsDetailsFragment();
@@ -51,6 +51,14 @@ public class FriendsEventsDetailsFragment extends Fragment {
     public void onViewCreated(View view,  Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+        initUI(view);
+
+        String name = event.getUser().getFirstName() + " " + event.getUser().getLastName();
+        adapter = new FriendsEventsDetailsAdapter(event.getGifts(), name);
+        recyclerView.setAdapter(adapter);
+    }
+    private void initUI(View view){
+
         tvUserName = view.findViewById(R.id.tvUserName);
         tvUserStatus = view.findViewById(R.id.tvUserStatus);
         tvDate = view.findViewById(R.id.tvDate);
@@ -61,18 +69,19 @@ public class FriendsEventsDetailsFragment extends Fragment {
         ivAvatar = view.findViewById(R.id.ivAvatar);
         recyclerView = view.findViewById(R.id.recyclerView);
         btnLike = view.findViewById(R.id.btnLike);
+        tvWishList = view.findViewById(R.id.tvWishList);
 
         String lastSeen = DateHelper.getLastSeen(event.getUser().getLastSeen());
         tvUserStatus.setText(lastSeen);
 
         String date = event.getEndDate().split("T")[0];
-        tvDate.setText("Expiry: " + date);
+        tvDate.setText(getResources().getString(R.string.expiry_format, date));
 
         tvUserName.setText(event.getUser().getUserName());
         tvTitle.setText(event.getTitle());
         tvDescription.setText(event.getDescription());
-        tvComments.setText(event.getTotalCommentCount() + " Comments");
-        tvLike.setText(event.getTotalLikesCount() + " Likes. ");
+        tvComments.setText(getResources().getString(R.string.comments_format, event.getTotalCommentCount()));
+        tvLike.setText(getResources().getString(R.string.likes_format, event.getTotalLikesCount()));
         Glide.with(requireContext()).load(event.getPhoto().getUrl()).into(ivAvatar);
 
         if (event.isLikeStatus()){
@@ -81,5 +90,11 @@ public class FriendsEventsDetailsFragment extends Fragment {
         else{
             btnLike.setImageResource(R.drawable.ic_btn_yeay_black);
         }
+        tvWishList.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                getParentFragmentManager().popBackStack();
+            }
+        });
     }
 }
