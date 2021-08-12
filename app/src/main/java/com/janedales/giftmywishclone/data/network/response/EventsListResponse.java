@@ -10,7 +10,7 @@ public class EventsListResponse {
     @SerializedName("events")
     private List<Event> events;
 
-    public List <Event> getEvent() {
+    public List <Event> getEvents() {
         return events;
     }
 }

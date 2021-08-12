@@ -1,6 +1,7 @@
 package com.janedales.giftmywishclone.ui.my_events.details;
 
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -45,6 +46,12 @@ public class MyEventsDetailsAdapter extends RecyclerView.Adapter<MyEventsDetails
             @Override
             public void onClick(View view) {
                 clickListenerGift.onGiftClick(gift);
+            }
+        });
+        holder.sbSeekBar.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View view, MotionEvent motionEvent) {
+                return true;
             }
         });
     }

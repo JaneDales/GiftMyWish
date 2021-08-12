@@ -1,5 +1,6 @@
 package com.janedales.giftmywishclone.data.service;
 
+import com.janedales.giftmywishclone.data.entity.Event;
 import com.janedales.giftmywishclone.data.network.request.ConfirmCodeRequest;
 import com.janedales.giftmywishclone.data.network.request.LoginUserSocialRequest;
 import com.janedales.giftmywishclone.data.network.request.LoginUserRequest;
@@ -50,4 +51,9 @@ public interface UserService {
 
     @POST("api/v1/providers/login")
     Call<UserResponse> login(@Body LoginUserSocialRequest loginUserSocialRequest);
+
+    @GET("api/v1/friend_events/{id}")
+    Call<EventsListResponse> getFriendEvent(
+            @Path("id") int id
+    );
 }

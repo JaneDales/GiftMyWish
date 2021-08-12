@@ -2,7 +2,6 @@ package com.janedales.giftmywishclone.ui.friends_events;
 
 import android.os.Bundle;
 
-import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
@@ -14,9 +13,10 @@ import android.widget.Toast;
 
 import com.janedales.giftmywishclone.R;
 import com.janedales.giftmywishclone.data.entity.Event;
+import com.janedales.giftmywishclone.data.entity.User;
 import com.janedales.giftmywishclone.ui.base.BaseFragment;
 import com.janedales.giftmywishclone.ui.friends_events.details.FriendsEventsDetailsFragment;
-import com.janedales.giftmywishclone.ui.my_events.details.MyEventsDetailsFragment;
+import com.janedales.giftmywishclone.ui.user_profile.UserProfileFragment;
 
 
 import java.util.List;
@@ -68,6 +68,14 @@ public class FriendsEventsFragment extends BaseFragment implements FriendsEvents
     public void onEventClick(Event event) {
         FragmentTransaction ft = getChildFragmentManager().beginTransaction();
         ft.add(R.id.container, FriendsEventsDetailsFragment.newInstance(event));
+        ft.addToBackStack(null);
+        ft.commit();
+    }
+
+    @Override
+    public void onUserClick(User user) {
+        FragmentTransaction ft = getChildFragmentManager().beginTransaction();
+        ft.add(R.id.container, UserProfileFragment.newInstance(user));
         ft.addToBackStack(null);
         ft.commit();
     }

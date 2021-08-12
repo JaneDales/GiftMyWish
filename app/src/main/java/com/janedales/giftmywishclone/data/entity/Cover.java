@@ -7,4 +7,12 @@ public class Cover {
     private String url;
     @SerializedName("thumb")
     private Thumb thumb;
+
+    public String getUrl() {
+        return url;
+    }
+
+    public Thumb getThumb() {
+        return thumb;
+    }
 }

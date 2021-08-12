@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical">
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="?attr/selectableItemBackground">
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
@@ -60,10 +61,9 @@
             <TextView
                 android:id="@+id/tvUserName"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="0dp"
                 tools:text="@string/username"
                 android:textColor="@color/black"
-                android:layout_margin="16dp"
                 android:gravity="center"
                 app:layout_constraintBottom_toBottomOf="@id/line"
                 app:layout_constraintLeft_toLeftOf="@id/line"
@@ -72,8 +72,7 @@
             <TextView
                 android:id="@+id/tvTitle"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_margin="16dp"
+                android:layout_height="0dp"
                 tools:text="@string/my_wish"
                 android:gravity="center"
                 android:textColor="@color/black"

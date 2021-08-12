@@ -63,6 +63,12 @@ public class FriendsEventsAdapter extends RecyclerView.Adapter<FriendsEventsAdap
                 clickListenerFriendsEvents.onEventClick(event);
             }
         });
+        holder.tvUserName.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                clickListenerFriendsEvents.onUserClick(event.getUser());
+            }
+        });
     }
 
     private void loadImage(String url, ImageView imageView) {

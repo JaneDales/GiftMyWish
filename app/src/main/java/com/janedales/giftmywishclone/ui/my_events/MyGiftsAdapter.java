@@ -1,6 +1,8 @@
 package com.janedales.giftmywishclone.ui.my_events;
 
+import android.annotation.SuppressLint;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -36,6 +38,12 @@ public class MyGiftsAdapter extends RecyclerView.Adapter<MyGiftsAdapter.ViewHold
         holder.tvTitle.setText(gift.getName());
         loadImage(gift.getPhoto().getUrl(), holder.ivCover);
         holder.sbSeekBar.setProgress(gift.getTotalFundPercentage());
+        holder.sbSeekBar.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View view, MotionEvent motionEvent) {
+                return true;
+            }
+        });
     }
 
     private void loadImage(String url, ImageView imageView) {

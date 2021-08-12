@@ -24,7 +24,7 @@ public class FriendsEventsModel {
       call.enqueue(new Callback<EventsListResponse>() {
         @Override
         public void onResponse(Call<EventsListResponse> call, Response<EventsListResponse> response) {
-          callback.onSuccess(response.body().getEvent());
+          callback.onSuccess(response.body().getEvents());
         }
 
         @Override

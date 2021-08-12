@@ -23,6 +23,7 @@ public class FriendsEventsDetailsFragment extends Fragment {
     private ImageView ivAvatar, btnLike;
     private TextView tvUserName, tvUserStatus, tvDate, tvTitle, tvDescription, tvComments, tvLike;
     private RecyclerView recyclerView;
+    //adapter
 
     public static FriendsEventsDetailsFragment newInstance(Event event) {
         FriendsEventsDetailsFragment fragment = new FriendsEventsDetailsFragment();
