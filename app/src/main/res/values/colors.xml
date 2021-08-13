@@ -12,5 +12,6 @@
     <color name="gray_light">#80E1DADF</color>
     <color name="gray_light_2">#DEDEDE</color>
     <color name="gray">#D5D5D5</color>
+    <color name="gray_50">#80D5D5D5</color>
     <color name="transparent">#00FDFCFD</color>
 </resources>

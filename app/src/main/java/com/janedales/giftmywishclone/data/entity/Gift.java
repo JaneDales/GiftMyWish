@@ -2,9 +2,10 @@ package com.janedales.giftmywishclone.data.entity;
 
 import com.google.gson.annotations.SerializedName;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class Gift {
+public class Gift implements Serializable {
     @SerializedName("id")
     private int id;
     @SerializedName("name")

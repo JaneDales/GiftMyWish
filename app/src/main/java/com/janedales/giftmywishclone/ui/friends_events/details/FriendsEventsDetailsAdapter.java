@@ -14,6 +14,7 @@ import com.bumptech.glide.Glide;
 import com.janedales.giftmywishclone.R;
 import com.janedales.giftmywishclone.data.entity.Gift;
 import com.janedales.giftmywishclone.data.helpers.Constants;
+import com.janedales.giftmywishclone.ui.my_events.details.ClickListenerGift;
 
 import java.util.List;
 
@@ -21,10 +22,12 @@ public class FriendsEventsDetailsAdapter extends RecyclerView.Adapter<FriendsEve
 
     private List<Gift> list;
     private String userName;
+    private ClickListenerGift clickListenerGift;
 
-    public FriendsEventsDetailsAdapter(List<Gift> list, String userName){
+    public FriendsEventsDetailsAdapter(List<Gift> list, String userName, ClickListenerGift clickListenerGift){
         this.list = list;
         this.userName = userName;
+        this.clickListenerGift = clickListenerGift;
     }
 
     @Override
@@ -58,6 +61,12 @@ public class FriendsEventsDetailsAdapter extends RecyclerView.Adapter<FriendsEve
         else {
             loadImage(gift.getPhoto().getUrl(), holder.ivCover);
         }
+        holder.ivCover.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                clickListenerGift.onGiftClick(gift);
+            }
+        });
     }
 
     private void loadImage(String url, ImageView imageView) {

@@ -2,7 +2,9 @@ package com.janedales.giftmywishclone.data.entity;
 
 import com.google.gson.annotations.SerializedName;
 
-public class Cover {
+import java.io.Serializable;
+
+public class Cover implements Serializable {
     @SerializedName("url")
     private String url;
     @SerializedName("thumb")

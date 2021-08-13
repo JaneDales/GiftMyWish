@@ -21,4 +21,13 @@
     <style name="BottomNavigationView.Active" parent="@style/TextAppearance.AppCompat.Caption">
         <item name="android:textSize">11sp</item>
     </style>
+
+    <style name="Theme.GiftMyWishClone.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="Theme.GiftMyWishClone.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="Theme.GiftMyWishClone.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 </resources>

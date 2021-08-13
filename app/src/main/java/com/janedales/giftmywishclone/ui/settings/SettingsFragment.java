@@ -49,7 +49,7 @@ public class SettingsFragment extends BaseFragment implements SettingsContract {
     @Override
     public void onLogOut() {
         SharedPreferences preferences = SharedPreferencesHelper.getInstance(requireActivity());
-        preferences.edit().remove("token");
+        preferences.edit().remove("token").apply();
         startActivity(new Intent(requireActivity(), EntryActivity.class));
     }
 }
