@@ -1,5 +1,7 @@
 plugins {
     id 'com.android.application'
+    id 'kotlin-android'
+    id 'kotlin-kapt'
 }
 apply plugin: 'kotlin-android'
 
@@ -57,6 +59,11 @@ dependencies {
     implementation 'jp.wasabeef:glide-transformations:4.0.1'
 
     implementation 'com.google.android.gms:play-services-auth:19.2.0'
+
+    def room_version = "2.3.0"
+
+    implementation "androidx.room:room-ktx:$room_version"
+    kapt "androidx.room:room-compiler:$room_version"
 
 }
 repositories {

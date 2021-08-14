@@ -1,11 +1,17 @@
 package com.janedales.giftmywishclone.data.entity;
 
+import androidx.room.Embedded;
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
+
 import com.google.gson.annotations.SerializedName;
 
 import java.io.Serializable;
 
+@Entity
 public class User implements Serializable {
     @SerializedName("id")
+    @PrimaryKey
     private int id;
     @SerializedName("first_name")
     private String firstName;
@@ -18,6 +24,7 @@ public class User implements Serializable {
     @SerializedName("platform_name")
     private String platformName;
     @SerializedName("avatar")
+    @Embedded(prefix = "avatar_")
     private Avatar avatar;
     @SerializedName("last_seen")
     private String lastSeen;
@@ -30,8 +37,10 @@ public class User implements Serializable {
     @SerializedName("events_count")
     private int eventsCount;
     @SerializedName("cover")
+    @Embedded(prefix = "user_")
     private Cover cover;
-    @SerializedName("shipping_address")
+    @SerializedName("shipping_address_")
+    @Embedded(prefix = "shipping_address")
     private ShippingAddress shippingAddress;
     @SerializedName("is_friend")
     private boolean isFriend;
@@ -102,6 +111,78 @@ public class User implements Serializable {
 
     public String getAuthenticationToken() {
         return authenticationToken;
+    }
+
+    public boolean isFriend() {
+        return isFriend;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
+    public void setPlatformName(String platformName) {
+        this.platformName = platformName;
+    }
+
+    public void setAvatar(Avatar avatar) {
+        this.avatar = avatar;
+    }
+
+    public void setLastSeen(String lastSeen) {
+        this.lastSeen = lastSeen;
+    }
+
+    public void setBirthDate(String birthDate) {
+        this.birthDate = birthDate;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public void setFriendsCount(int friendsCount) {
+        this.friendsCount = friendsCount;
+    }
+
+    public void setEventsCount(int eventsCount) {
+        this.eventsCount = eventsCount;
+    }
+
+    public void setCover(Cover cover) {
+        this.cover = cover;
+    }
+
+    public void setShippingAddress(ShippingAddress shippingAddress) {
+        this.shippingAddress = shippingAddress;
+    }
+
+    public void setFriend(boolean friend) {
+        isFriend = friend;
+    }
+
+    public void setAuthenticationToken(String authenticationToken) {
+        this.authenticationToken = authenticationToken;
+    }
+
+    public void setBio(String bio) {
+        this.bio = bio;
     }
 
     public String display() {
