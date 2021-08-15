@@ -7,31 +7,31 @@ import androidx.room.OnConflictStrategy;
 import androidx.room.Query;
 import androidx.room.Update;
 
-import com.janedales.giftmywishclone.data.entity.User;
+import com.janedales.giftmywishclone.data.entity.Event;
 
 import java.util.List;
 
 @Dao
-public interface UserDaoInterface {
+public interface EventDaoInterface {
 
-    @Query("SELECT * FROM user")
-    List<User> getAll();
+    @Query("SELECT * FROM event")
+    List<Event> getAll();
 
-    @Query("SELECT * FROM user WHERE id = :id")
-    User getById(long id);
-
-    @Insert(onConflict = OnConflictStrategy.REPLACE)
-    void insert(User employee);
+    @Query("SELECT * FROM event WHERE id = :id")
+    Event getById(long id);
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    void insertAll(List<User> users);
+    void insert(Event employee);
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    void insertAll(List<Event> events);
 
     @Update
-    void update(User user);
+    void update(Event event);
 
     @Delete
-    void delete(User user);
+    void delete(Event event);
 
-    @Query("DELETE FROM user")
+    @Query("DELETE FROM event")
     void deleteAll();
 }

@@ -1,7 +1,7 @@
 package com.janedales.giftmywishclone.data.entity;
 
-import androidx.room.ColumnInfo;
 import androidx.room.Entity;
+import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 
 import com.google.gson.annotations.SerializedName;
@@ -10,18 +10,17 @@ import com.google.gson.annotations.SerializedName;
 public class ShippingAddress {
     @PrimaryKey
     @SerializedName("id")
-    @ColumnInfo(name = "idAddress")
-    private int id;
+    private int id = 0;
     @SerializedName("street")
-    private String street;
+    private String street = "";
     @SerializedName("apartment")
-    private String apartment;
+    private String apartment = "";
     @SerializedName("country")
-    private String country;
+    private String country = "";
     @SerializedName("city")
-    private String city;
+    private String city = "";
     @SerializedName("postal_code")
-    private String postalCode;
+    private String postalCode = "";
 
     public int getId() {
         return id;
@@ -70,4 +69,16 @@ public class ShippingAddress {
     public void setPostalCode(String postalCode) {
         this.postalCode = postalCode;
     }
+
+    @Ignore
+    public ShippingAddress(int id, String street, String apartment, String country, String city, String postalCode) {
+        this.id = id;
+        this.street = street;
+        this.apartment = apartment;
+        this.country = country;
+        this.city = city;
+        this.postalCode = postalCode;
+    }
+
+    public ShippingAddress(){}
 }

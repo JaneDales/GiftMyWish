@@ -1,7 +1,9 @@
 package com.janedales.giftmywishclone.data.entity;
 
+import androidx.room.ColumnInfo;
 import androidx.room.Embedded;
 import androidx.room.Entity;
+import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 
 import com.google.gson.annotations.SerializedName;
@@ -11,43 +13,44 @@ import java.io.Serializable;
 @Entity
 public class User implements Serializable {
     @SerializedName("id")
+    @ColumnInfo(name = "user_id")
     @PrimaryKey
-    private int id;
+    private int id = 0;
     @SerializedName("first_name")
-    private String firstName;
+    private String firstName = "";
     @SerializedName("last_name")
-    private String lastName;
+    private String lastName = "";
     @SerializedName("username")
-    private String userName;
+    private String userName = "";
     @SerializedName("phone_number")
-    private String phoneNumber;
+    private String phoneNumber = "";
     @SerializedName("platform_name")
-    private String platformName;
+    private String platformName = "";
     @SerializedName("avatar")
-    @Embedded(prefix = "avatar_")
-    private Avatar avatar;
+    @Embedded(prefix = "user_")
+    private Avatar avatar = new Avatar();
     @SerializedName("last_seen")
-    private String lastSeen;
+    private String lastSeen = "";
     @SerializedName("birth_date")
-    private String birthDate;
+    private String birthDate = "";
     @SerializedName("email")
-    private String email;
+    private String email = "";
     @SerializedName("friends_count")
-    private int friendsCount;
+    private int friendsCount = 0;
     @SerializedName("events_count")
-    private int eventsCount;
+    private int eventsCount = 0;
     @SerializedName("cover")
     @Embedded(prefix = "user_")
-    private Cover cover;
+    private Cover cover = new Cover();
     @SerializedName("shipping_address_")
-    @Embedded(prefix = "shipping_address")
-    private ShippingAddress shippingAddress;
+    @Embedded(prefix = "user")
+    private ShippingAddress shippingAddress = new ShippingAddress();
     @SerializedName("is_friend")
-    private boolean isFriend;
+    private boolean isFriend = false;
     @SerializedName("authentication_token")
-    private String authenticationToken;
+    private String authenticationToken = "";
     @SerializedName("bio")
-    private String bio;
+    private String bio = "";
 
     public String getBio() {
         return bio;
@@ -200,4 +203,27 @@ public class User implements Serializable {
         sb.append(birthDate);
         return sb.toString();
     }
+
+    @Ignore
+    public User(int id, String firstName, String lastName, String userName, String phoneNumber, String platformName, Avatar avatar, String lastSeen, String birthDate, String email, int friendsCount, int eventsCount, Cover cover, ShippingAddress shippingAddress, boolean isFriend, String authenticationToken, String bio) {
+        this.id = id;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.userName = userName;
+        this.phoneNumber = phoneNumber;
+        this.platformName = platformName;
+        this.avatar = avatar;
+        this.lastSeen = lastSeen;
+        this.birthDate = birthDate;
+        this.email = email;
+        this.friendsCount = friendsCount;
+        this.eventsCount = eventsCount;
+        this.cover = cover;
+        this.shippingAddress = shippingAddress;
+        this.isFriend = isFriend;
+        this.authenticationToken = authenticationToken;
+        this.bio = bio;
+    }
+
+    public User(){}
 }

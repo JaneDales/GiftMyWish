@@ -1,8 +1,10 @@
 package com.janedales.giftmywishclone.data.entity;
 
 import androidx.annotation.NonNull;
+import androidx.room.ColumnInfo;
 import androidx.room.Embedded;
 import androidx.room.Entity;
+import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 
 import com.google.gson.annotations.SerializedName;
@@ -14,10 +16,11 @@ public class Cover implements Serializable {
     @PrimaryKey
     @SerializedName("url")
     @NonNull
-    private String url;
+    @ColumnInfo(name = "url_")
+    private String url = "";
     @SerializedName("thumb")
     @Embedded(prefix = "cover_")
-    private Thumb thumb;
+    private Thumb thumb = new Thumb();
 
     public String getUrl() {
         return url;
@@ -34,4 +37,12 @@ public class Cover implements Serializable {
     public void setUrl(String url) {
         this.url = url;
     }
+
+    @Ignore
+    public Cover(@NonNull String url, Thumb thumb) {
+        this.url = url;
+        this.thumb = thumb;
+    }
+
+    public Cover(){}
 }

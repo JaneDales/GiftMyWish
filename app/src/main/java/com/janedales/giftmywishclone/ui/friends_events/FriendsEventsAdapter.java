@@ -44,7 +44,7 @@ public class FriendsEventsAdapter extends RecyclerView.Adapter<FriendsEventsAdap
 
         holder.tvUserName.setText(event.getUser().getFirstName() + " " + event.getUser().getLastName());
         holder.tvTitle.setText(event.getTitle());
-        if (event.getPhoto().getUrl() == null) {
+        if (event.getPhoto() == null || event.getPhoto().getUrl() == null) {
             loadImage(Constants.AVATAR_PLACEHOLDER, holder.ivCover);
         }
         else {

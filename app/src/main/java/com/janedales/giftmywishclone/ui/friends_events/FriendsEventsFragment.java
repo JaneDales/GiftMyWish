@@ -53,9 +53,14 @@ public class FriendsEventsFragment extends BaseFragment implements FriendsEvents
 
     @Override
     public void ovEventsLoaded(List<Event> list) {
-        adapter = new FriendsEventsAdapter(list, this);
-        recycler1.setAdapter(adapter);
         swipeRefreshLayout.setRefreshing(false);
+        if (list.isEmpty()) {
+            Toast.makeText(requireContext(), "No events yet", Toast.LENGTH_SHORT).show();
+        }
+        else {
+            adapter = new FriendsEventsAdapter(list, this);
+            recycler1.setAdapter(adapter);
+        }
     }
 
     @Override
