@@ -27,5 +27,6 @@ import com.janedales.giftmywishclone.data.entity.User;
 public abstract class AppDatabase extends RoomDatabase {
 
     public abstract EventDaoInterface eventDao();
+    public abstract UserDaoInterface userDao();
 
 }
