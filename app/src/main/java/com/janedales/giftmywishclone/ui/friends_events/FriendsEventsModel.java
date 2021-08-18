@@ -29,9 +29,7 @@ public class FriendsEventsModel {
       }
     }
 
-  public void getEventsFromApi() {
-    System.out.println("AAAAA, getEventsFromApi");
-
+  private void getEventsFromApi() {
       /** Create handle for the RetrofitInstance interface*/
       UserService service = RetrofitInstance.getRetrofitInstance().create(UserService.class);
 
@@ -55,10 +53,8 @@ public class FriendsEventsModel {
     }
 
   private void getEventsFromDb() {
-    System.out.println("AAAAA, getEventsFromDb");
-
     AppDatabase db = App.getInstance().getDatabase();
-    List<Event> events = db.eventDao().getAll();
+    List<Event> events = db.eventDao().getAll(false);
 
     for (Event e : events) {
       System.out.println("Event = " + e.getTitle());
@@ -70,9 +66,12 @@ public class FriendsEventsModel {
   public void saveEventsInDb(List<Event> list) {
     AppDatabase db = App.getInstance().getDatabase();
 
+    for (Event event: list) {
+      event.setMyEvent(false);
+    }
     db.eventDao().insertAll(list);
 
-    List<Event> events = db.eventDao().getAll();
+    List<Event> events = db.eventDao().getAll(false);
     for (Event e : events) {
       System.out.println("Saved event = " + e.getTitle());
     }

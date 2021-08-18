@@ -10,4 +10,5 @@ public interface MyEventsContract {
     void onFail(Throwable t);
 
     void onUser(User user);
+    void showUserLocalDetails();
 }

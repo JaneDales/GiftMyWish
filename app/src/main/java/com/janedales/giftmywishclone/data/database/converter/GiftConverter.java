@@ -4,7 +4,6 @@ import androidx.room.TypeConverter;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
-import com.janedales.giftmywishclone.data.entity.Comment;
 import com.janedales.giftmywishclone.data.entity.Gift;
 
 import java.lang.reflect.Type;
@@ -14,7 +13,7 @@ public class GiftConverter {
 
     @TypeConverter
     public static ArrayList<Gift> fromString(String value) {
-        Type listType = new TypeToken<ArrayList<Comment>>() {}.getType();
+        Type listType = new TypeToken<ArrayList<Gift>>() {}.getType();
         return new Gson().fromJson(value, listType);
     }
 

@@ -1,5 +1,6 @@
 package com.janedales.giftmywishclone.ui.my_events;
 
+import com.janedales.giftmywishclone.App;
 import com.janedales.giftmywishclone.data.entity.Event;
 import com.janedales.giftmywishclone.data.entity.User;
 
@@ -19,7 +20,12 @@ public class MyEventsPresenter implements MyEventsModelCallback {
     }
 
     public void getUser(int id){
-        model.getUserProfile(id);
+        if (App.getInstance().isNetworkAvailable()) {
+            model.getUserProfile(id);
+        }
+        else {
+            contract.showUserLocalDetails();
+        }
     }
 
     @Override

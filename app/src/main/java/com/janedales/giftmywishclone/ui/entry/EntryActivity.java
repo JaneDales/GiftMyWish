@@ -1,7 +1,6 @@
 package com.janedales.giftmywishclone.ui.entry;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
@@ -85,9 +84,7 @@ public class EntryActivity extends BaseActivity implements EntryContract{
 
     @Override
     public void onUserLogged(User user) {
-        SharedPreferences sharedPreferences = SharedPreferencesHelper.getInstance(this);
-        sharedPreferences.edit().putString(Constants.TOKEN, user.getAuthenticationToken()).apply();
-        sharedPreferences.edit().putInt(Constants.USER_ID, user.getId()).apply();
+        SharedPreferencesHelper.saveUser(this, user);
         RetrofitInstance.setmToken(user.getAuthenticationToken());
 
         Intent intent = new Intent(EntryActivity.this, MainActivity.class);

@@ -1,7 +1,6 @@
 package com.janedales.giftmywishclone.ui.login;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -13,7 +12,6 @@ import android.widget.Toast;
 import com.janedales.giftmywishclone.MainActivity;
 import com.janedales.giftmywishclone.R;
 import com.janedales.giftmywishclone.data.entity.User;
-import com.janedales.giftmywishclone.data.helpers.Constants;
 import com.janedales.giftmywishclone.data.helpers.SharedPreferencesHelper;
 import com.janedales.giftmywishclone.ui.base.BaseActivity;
 import com.janedales.giftmywishclone.ui.register.RegisterActivity;
@@ -64,9 +62,7 @@ public class LoginActivity extends BaseActivity implements LoginContract {
 
     @Override
     public void onLoginSuccess(User user) {
-        SharedPreferences sharedPreferences = SharedPreferencesHelper.getInstance(this);
-        sharedPreferences.edit().putString(Constants.TOKEN, user.getAuthenticationToken()).apply();
-        sharedPreferences.edit().putInt(Constants.USER_ID, user.getId()).apply();
+        SharedPreferencesHelper.saveUser(this, user);
         startActivity(new Intent(LoginActivity.this, MainActivity.class));
     }
 

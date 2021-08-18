@@ -14,8 +14,8 @@ import java.util.List;
 @Dao
 public interface EventDaoInterface {
 
-    @Query("SELECT * FROM event")
-    List<Event> getAll();
+    @Query("SELECT * FROM event WHERE isMyEvent = :isMyEvent")
+    List<Event> getAll(boolean isMyEvent);
 
     @Query("SELECT * FROM event WHERE id = :id")
     Event getById(long id);

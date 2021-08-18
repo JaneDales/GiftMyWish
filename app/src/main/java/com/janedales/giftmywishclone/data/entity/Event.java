@@ -49,6 +49,16 @@ public class Event implements Serializable {
     @ColumnInfo(name = "hide_ids")
     private ArrayList<Integer> hideIds = new ArrayList<>();
 
+    private boolean isMyEvent = false;
+
+    public boolean isMyEvent() {
+        return isMyEvent;
+    }
+
+    public void setMyEvent(boolean myEvent) {
+        isMyEvent = myEvent;
+    }
+
     public int getId() {
         return id;
     }
@@ -178,7 +188,7 @@ public class Event implements Serializable {
     }
 
     @Ignore
-    public Event(int id, String publicId, String userId, String title, String startDate, String endDate, String description, boolean isExpired, int totalLikesCount, int totalCommentCount, User user, ArrayList<Comment> lastComments, boolean likeStatus, Avatar photo, ArrayList<Gift> gifts, ArrayList<Integer> hideIds) {
+    public Event(int id, String publicId, String userId, String title, String startDate, String endDate, String description, boolean isExpired, int totalLikesCount, int totalCommentCount, User user, ArrayList<Comment> lastComments, boolean likeStatus, Avatar photo, ArrayList<Gift> gifts, ArrayList<Integer> hideIds, boolean isMyEvent) {
         this.id = id;
         this.publicId = publicId;
         this.userId = userId;
@@ -195,6 +205,7 @@ public class Event implements Serializable {
         this.photo = photo;
         this.gifts = gifts;
         this.hideIds = hideIds;
+        this.isMyEvent = isMyEvent;
     }
 
     public Event(){}
